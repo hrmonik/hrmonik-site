@@ -163,6 +163,15 @@
   .embed a{color:var(--muted);font-size:11px;letter-spacing:1px;word-break:break-all;transition:color .25s}
   .embed a:hover{color:#fff}
 
+  /* ---------- WORK · PHOTO STRIP ---------- */
+  .gallery-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);margin-top:64px}
+  .gallery-strip figure{position:relative;overflow:hidden;background:var(--bg);aspect-ratio:3/2}
+  .gallery-strip figure::after{content:"";position:absolute;inset:0;border:1px solid rgba(255,255,255,.06);pointer-events:none}
+  .gallery-strip img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block;
+    filter:grayscale(.15) contrast(1.02) brightness(.97);transition:transform .6s var(--ease),filter .4s}
+  .gallery-strip figure:hover img{transform:scale(1.045);filter:none}
+  @media(max-width:820px){.gallery-strip{grid-template-columns:1fr}}
+
   /* ---------- ABOUT ---------- */
   .about{display:grid;grid-template-columns:.82fr 1.18fr;gap:60px;align-items:start;max-width:940px;margin:0 auto}
   /* refined, clearly-intentional portrait placeholder — an elegantly framed
@@ -170,16 +179,14 @@
      background-image / <img> at publish; the hairline frame + label stay tasteful. */
   .about .photo{
     position:relative;background:linear-gradient(165deg,#0d0d0d 0%,#060606 100%);
-    border:1px solid var(--line2);aspect-ratio:4/5;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
-    text-align:center;padding:28px;transition:box-shadow .4s var(--ease),border-color .4s;
+    border:1px solid var(--line2);aspect-ratio:4/5;overflow:hidden;
+    transition:box-shadow .4s var(--ease),border-color .4s;
   }
   .about .photo:hover{box-shadow:var(--glow);border-color:#3a3a3a}
-  .about .photo .photo-frame{position:absolute;inset:11px;border:1px solid var(--line);pointer-events:none}
-  .about .photo .photo-wave{position:relative;z-index:1;width:96px;height:22px;overflow:visible;opacity:.5}
-  .about .photo .photo-wave path{stroke:#fff;fill:none;stroke-width:1;stroke-linecap:round;vector-effect:non-scaling-stroke}
-  .about .photo .photo-label{position:relative;z-index:1;font-size:11px;text-transform:uppercase;letter-spacing:3px;font-weight:300;color:var(--muted)}
-  .about .photo .photo-sub{position:relative;z-index:1;font-size:9px;text-transform:uppercase;letter-spacing:2px;font-weight:300;color:var(--dim)}
+  .about .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 28%;display:block;
+    filter:grayscale(.12) contrast(1.02) brightness(.98);transition:transform .6s var(--ease),filter .4s}
+  .about .photo:hover img{transform:scale(1.04);filter:none}
+  .about .photo .photo-frame{position:absolute;inset:11px;border:1px solid rgba(255,255,255,.22);pointer-events:none;z-index:2}
   .about .bio p{color:var(--muted);margin-bottom:18px;font-size:14.5px;font-weight:300;line-height:1.9}
   .about .bio p b{color:#fff;font-weight:400}
   .about .bio p:last-of-type{margin-bottom:0}
@@ -518,6 +525,12 @@
 
     <p class="credit-note reveal">Seven years of brand-grade audio for Salesforce, Dolby new-tech consulting, independent music production — and current <b>mixing &amp; mastering</b> plus game-audio and AI-automation work for game projects and a music initiative, provided through <b>Rose International</b> (Audio Engineering III services for Meta). Brand names reference specific productions JP engineered — each with a public link above.</p>
 
+    <!-- Real photos of JP — hotlinked from the live Squarespace CDN. -->
+    <div class="gallery-strip reveal">
+      <figure><img src="https://images.squarespace-cdn.com/content/v1/5433382de4b0621c8a4b5835/1481062399742-ICZ0BFTW9DFAWPDHX7OD/LOR_2735-2.JPG" alt="JP Dutreuil — Hrmonik, audio engineer &amp; producer" loading="lazy" /></figure>
+      <figure><img src="https://images.squarespace-cdn.com/content/v1/5433382de4b0621c8a4b5835/1481062302110-IU7SJX1EJYJ7BH4FAUSV/LOR_2716-2.JPG" alt="JP Dutreuil — Hrmonik, audio engineer &amp; producer" loading="lazy" /></figure>
+    </div>
+
     <div class="sec-head reveal" style="margin-top:84px;margin-bottom:40px">
       <span class="eyebrow">Music — production · mix &amp; master</span>
       <h2 style="font-size:clamp(20px,2.6vw,26px)">Current releases</h2>
@@ -584,12 +597,10 @@
       <h2>Brand-grade ears, the whole signal chain.</h2>
     </div>
     <div class="about">
-      <!-- Refined portrait placeholder — drop the real headshot in here (background-image or <img>) at publish. -->
+      <!-- Real portrait — JP Dutreuil headshot, hotlinked from the live Squarespace CDN. -->
       <div class="photo reveal">
+        <img src="https://images.squarespace-cdn.com/content/v1/5433382de4b0621c8a4b5835/1481062897418-WEJZW4L3JSSOBW6OWQNC/LOR_2747-2.JPG" alt="JP Dutreuil — Hrmonik, audio engineer &amp; producer" loading="lazy" />
         <span class="photo-frame" aria-hidden="true"></span>
-        <svg class="photo-wave" viewBox="0 0 96 22" preserveAspectRatio="none" aria-hidden="true"><path d="M0 11 Q12 1 24 11 T48 11 T72 11 T96 11"/></svg>
-        <span class="photo-label">Portrait</span>
-        <span class="photo-sub">Headshot · studio · DJ rig</span>
       </div>
       <div class="bio reveal d1">
         <p>I'm JP Dutreuil, the engineer behind Hrmonik. I trained as an electrical engineering technologist at RIT, then went deep into sound at Pyramind Studios in San Francisco. For seven years (2016–2023) I was a full-time <b>Immersive Audio Producer and Mix Engineer at Salesforce</b> — designing and mixing sound for the <b>Salesforce World Tour Keynote featuring Metallica</b>, the <b>Think Outside the Quota</b> series, immersive activations across <b>Dreamforce</b>, and the <b>Blazing Trails</b> podcast — and I consulted for <b>Dolby Laboratories</b> on new audio technologies.</p>
