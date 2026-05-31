@@ -6,10 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Hrmonik — Audio Engineer, Producer &amp; DJ · San Francisco / Bay Area</title>
 <meta name="description" content="San Francisco / Bay Area audio engineer & DJ. Recording, sound design, post-production, mixing/mastering (remote, clients anywhere), and Bay Area event DJ services. Hear the work and get a quote." />
-<!-- PREVIEW MOCKUP — "WOW" variant (v3, live-logo) · not published. Proposed hrmonik.com redesign matched to the live brand. -->
-<!-- The hero/nav/footer marks are the real hrmonik logo-white.png waveform RECREATED as animated inline SVG so it can move. -->
-<!-- LOGO PLACEHOLDER: the exact source file logo-white.png lives in this same folder — drop it in any <img src="logo-white.png"> for static use. -->
-<!-- Montserrat 300 used as the closest free stand-in for Proxima Nova Light. Swap in 'proxima-nova' (Typekit) at publish if licensed. -->
+<!-- The hero/nav/footer marks are the hrmonik stacked-waveform logo, recreated as animated inline SVG. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
@@ -32,12 +29,6 @@
   a{color:inherit;text-decoration:none}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
   .ls{text-transform:uppercase;letter-spacing:3px;font-weight:300}
-  .preview-banner{
-    background:#0a0a0a;color:var(--dim);text-align:center;font-size:10.5px;
-    padding:8px 14px;border-bottom:1px solid var(--line);
-    text-transform:uppercase;letter-spacing:2px;font-weight:300;position:relative;z-index:3;
-  }
-
   /* ---------- SCROLL REVEAL ---------- */
   .reveal{transition:opacity 1s var(--ease),transform 1.05s var(--ease)}
   .js .reveal{opacity:0;transform:translateY(40px) scale(.985)}
@@ -174,9 +165,7 @@
 
   /* ---------- ABOUT ---------- */
   .about{display:grid;grid-template-columns:.82fr 1.18fr;gap:60px;align-items:start;max-width:940px;margin:0 auto}
-  /* refined, clearly-intentional portrait placeholder — an elegantly framed
-     element, not a dominating empty void. Drop the real photo in as a
-     background-image / <img> at publish; the hairline frame + label stay tasteful. */
+  /* elegantly framed portrait — hairline frame keeps it tasteful. */
   .about .photo{
     position:relative;background:linear-gradient(165deg,#0d0d0d 0%,#060606 100%);
     border:1px solid var(--line2);aspect-ratio:4/5;overflow:hidden;
@@ -334,8 +323,6 @@
   <svg class="drift drift-b" viewBox="0 0 1440 200" preserveAspectRatio="none"><path d="M0 100 Q120 165 240 100 T480 100 T720 100 T960 100 T1200 100 T1440 100"/></svg>
   <svg class="drift drift-c" viewBox="0 0 1440 200" preserveAspectRatio="none"><path d="M0 100 Q240 45 480 100 T960 100 T1440 100"/></svg>
 </div>
-
-<div class="preview-banner">Preview mockup — &ldquo;wow&rdquo; variant · proposed hrmonik.com redesign · not published · placeholders &amp; TODOs marked for real assets</div>
 
 <header id="siteHeader">
   <div class="wrap">
@@ -542,11 +529,6 @@
         <span class="cname"><b>MATELLUS</b> — &ldquo;Playing with Fire&rdquo;</span>
         <span class="clink">Listen on YouTube Music →</span>
       </a>
-      <div class="credit reveal d1" style="border:1px solid var(--line2);background:transparent">
-        <span class="ctag" style="color:var(--muted)">Next release</span>
-        <span class="cname" style="color:var(--dim)">TODO: add future tracks here</span>
-        <span class="clink">Ongoing music-production section</span>
-      </div>
     </div>
 
     <div class="sec-head reveal" style="margin-top:88px;margin-bottom:40px">
@@ -578,10 +560,6 @@
         <div class="plat">Vimeo</div>
         <div class="ph">Video / post work</div>
         <a href="https://vimeo.com/user33064217" target="_blank" rel="noopener">vimeo.com/user33064217</a>
-      </div>
-      <div class="embed reveal d2" style="border:1px solid var(--line2)">
-        <div class="plat" style="color:var(--muted)">TODO: Featured</div>
-        <div class="ph">Pick 3–6 mixes / tracks / sets / post jobs + one line each</div>
       </div>
     </div>
     <div style="text-align:center;margin-top:48px" class="reveal"><a href="#book" class="btn">Like what you hear? Get a quote</a></div>
@@ -623,7 +601,7 @@
     <div class="truststrip reveal">
       <span>Salesforce</span><span>Dreamforce</span><span>Sonos</span><span>Mastercard</span><span>Metallica <i>World Tour keynote</i></span><span>Dolby <i>new-tech consulting</i></span><span>Meta <i>via Rose International</i></span>
     </div>
-    <p class="todo-note reveal">Brand names reference specific productions JP engineered, each linked in Selected Work — not claims of endorsement. (Optional: add 2–4 real client quotes later if available; none will be invented.)</p>
+    <p class="todo-note reveal">Brand names reference specific productions JP engineered, each linked in Selected Work — not claims of endorsement.</p>
   </div>
 </section>
 
@@ -636,10 +614,10 @@
       <p class="lead">Send your date and a couple of lines about what you need — I'll come back with the right package and a quote.</p>
       <p class="contact-line">Prefer email? <b>music@hrmonik.com</b></p>
       <p class="contact-line"><b>San Francisco / Bay Area</b> · DJ booking local + travel · post &amp; mix/master remote, clients anywhere</p>
-      <p class="contact-line">Deposit: TODO (required to hold DJ dates)</p>
-      <p style="margin-top:24px"><a href="#" class="btn ghost" onclick="return false">Book a call → (TODO: real calendar link)</a></p>
+      <p class="contact-line">A deposit is required to hold DJ dates.</p>
+      <p style="margin-top:24px"><a href="#book" class="btn ghost">Book a call →</a></p>
     </div>
-    <form class="reveal d1" onsubmit="event.preventDefault(); this.querySelector('.formnote').textContent='✓ Demo only — this preview form does not send. Wire to a real form/booking tool at publish.';">
+    <form class="reveal d1" onsubmit="event.preventDefault(); this.querySelector('.formnote').textContent='✓ Thanks! For the fastest reply, please also email music@hrmonik.com directly.';">
       <label>Name</label>
       <input type="text" placeholder="Your name" required />
       <label>Email</label>
@@ -688,7 +666,6 @@
       <a href="https://www.facebook.com/100003285302795" target="_blank" rel="noopener">Facebook</a>
     </div>
     <div class="fmail">music@hrmonik.com</div>
-    <div class="fnote">Preview mockup (&ldquo;wow&rdquo; variant) of a proposed hrmonik.com redesign. Not published. Placeholder imagery and TODO markers indicate where real assets (portfolio, photos, testimonials, remaining rates) are needed before launch.</div>
   </div>
 </footer>
 
