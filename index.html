@@ -4,8 +4,8 @@
 <script>document.documentElement.className += ' js';</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Hrmonik — Audio Engineer, Producer &amp; DJ · San Francisco / Bay Area</title>
-<meta name="description" content="San Francisco / Bay Area audio engineer & DJ. Recording, sound design, post-production, mixing/mastering (remote, clients anywhere), and Bay Area event DJ services. Hear the work and get a quote." />
+<title>Hrmonik — Audio Engineer, Producer &amp; DJ</title>
+<meta name="description" content="Audio engineer, producer & DJ. Remote post-production, mixing & mastering, recording and sound design for clients anywhere — plus event DJ work, available to travel. Hear the work and get a quote." />
 <!-- The hero/nav/footer marks are the hrmonik stacked-waveform logo, recreated as animated inline SVG. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,6 +16,7 @@
     --text:#ffffff; --muted:#9a9a9a; --dim:#5e5e5e;
     --maxw:1080px;
     --glow:0 0 60px rgba(255,255,255,.06);
+    --accent:#e7b24c; --accent-bright:#f3c869;
     --ease:cubic-bezier(.22,.61,.36,1);
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -60,17 +61,17 @@
   }
   .navlinks a:not(.nav-cta):hover{opacity:1}
   .navlinks a:not(.nav-cta):hover::after{right:0}
-  .navlinks a.nav-cta{border:1px solid var(--line2);padding:9px 18px;opacity:.9;transition:border-color .3s,box-shadow .3s,opacity .3s}
-  .navlinks a.nav-cta:hover{border-color:#fff;opacity:1;box-shadow:var(--glow)}
+  .navlinks a.nav-cta{border:1px solid var(--accent);color:var(--accent);padding:9px 18px;opacity:1;transition:border-color .3s,background .3s,color .3s,box-shadow .3s,opacity .3s}
+  .navlinks a.nav-cta:hover{background:var(--accent);border-color:var(--accent);color:#0a0a0a;opacity:1;box-shadow:0 0 32px rgba(231,178,76,.35)}
   .burger{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer}
   .btn{
-    display:inline-block;background:transparent;color:#fff;border:1px solid #fff;
-    font-size:12px;text-transform:uppercase;letter-spacing:3px;font-weight:300;
+    display:inline-block;background:var(--accent);color:#0a0a0a;border:1px solid var(--accent);
+    font-size:12px;text-transform:uppercase;letter-spacing:3px;font-weight:500;
     padding:14px 30px;cursor:pointer;transition:background .3s var(--ease),color .3s,box-shadow .3s,transform .3s;
     position:relative;
   }
-  .btn:hover{background:#fff;color:#000;box-shadow:0 0 46px rgba(255,255,255,.28);transform:translateY(-3px)}
-  .btn.ghost{border-color:var(--line2);color:var(--muted)}
+  .btn:hover{background:var(--accent-bright);color:#0a0a0a;border-color:var(--accent-bright);box-shadow:0 0 46px rgba(231,178,76,.40);transform:translateY(-3px)}
+  .btn.ghost{background:transparent;border-color:var(--line2);color:var(--muted);font-weight:300}
   .btn.ghost:hover{border-color:#fff;color:#fff;background:transparent;box-shadow:var(--glow)}
 
   /* ---------- HERO ---------- */
@@ -134,8 +135,8 @@
   .svc.spotlight{box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
   .svc.spotlight .pill{color:#fff;border-color:#fff}
   .retainer{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;font-weight:300;margin-bottom:20px}
-  .svc a.svc-cta{font-size:11px;text-transform:uppercase;letter-spacing:3px;font-weight:300;color:#fff;opacity:.7;border-bottom:1px solid var(--line2);padding-bottom:3px;transition:opacity .25s,border-color .25s,letter-spacing .3s}
-  .svc a.svc-cta:hover{opacity:1;border-color:#fff;letter-spacing:4px}
+  .svc a.svc-cta{font-size:11px;text-transform:uppercase;letter-spacing:3px;font-weight:400;color:var(--accent);opacity:.85;border-bottom:1px solid var(--accent);padding-bottom:3px;transition:opacity .25s,border-color .25s,letter-spacing .3s}
+  .svc a.svc-cta:hover{opacity:1;border-color:var(--accent-bright);letter-spacing:4px}
 
   /* ---------- WORK ---------- */
   .credits{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line)}
@@ -371,9 +372,9 @@
       </svg>
       <span class="hero-logo-tag">Hrmonik · sound, alive</span>
     </div>
-    <span class="eyebrow">San Francisco / Bay Area · Audio Engineering III for Meta via Rose International (2024–25) · Salesforce immersive audio 2016–2023 · Pro Tools HD certified</span>
+    <span class="eyebrow">Remote audio post-production &amp; mixing/mastering · DJ for events, available to travel · Pro Tools HD certified</span>
     <h1>Brand-grade sound<span class="em">engineered end to end.</span></h1>
-    <p class="sub">Mix engineer, sound designer, and producer — most recently, through Rose International, providing Audio Engineering III services for Meta: game-audio Foley, sound design, and mixing &amp; mastering, with JavaScript (SoundFlow) automation. That builds on seven years crafting immersive audio at Salesforce — the Metallica keynote, Dreamforce, brand films, podcasts. Now taking on recording, post-production, mixing &amp; mastering, and sound design — remote for clients anywhere — plus event DJ work across the San Francisco / Bay Area.</p>
+    <p class="sub">Mix engineer, sound designer, and producer. Post-production, mixing &amp; mastering, recording and sound design — delivered remotely, for clients anywhere — plus event DJ work, available to travel. Most recently provided Audio Engineering III services for Meta (through Rose International), building on seven years of immersive audio at Salesforce — the Metallica keynote, Dreamforce, brand films, podcasts.</p>
     <div class="hero-ctas">
       <a href="#book" class="btn">Get a Quote</a>
       <a href="#work" class="btn ghost">Hear the work ↓</a>
@@ -394,7 +395,7 @@
     </div>
     <div class="grid">
 
-      <div class="svc reveal">
+      <div class="svc reveal" style="order:4">
         <div class="top"><h3>Recording</h3><span class="price quote">Quote on request</span></div>
         <p class="blurb">A professionally tracked, edit-ready session. For artists, podcasters, and voice talent.</p>
         <ul class="tiers">
@@ -405,7 +406,7 @@
         <a href="#book" class="svc-cta">Book a session →</a>
       </div>
 
-      <div class="svc reveal d1">
+      <div class="svc reveal d1" style="order:5">
         <div class="top"><h3>Sound Design</h3><span class="price quote">Quote on request</span></div>
         <p class="blurb">Original, ready-to-drop sound for your project. For game/app studios, video &amp; ad producers, filmmakers.</p>
         <ul class="tiers">
@@ -416,8 +417,8 @@
         <a href="#book" class="svc-cta">Start a project →</a>
       </div>
 
-      <div class="svc reveal">
-        <div class="top"><h3>Post-Production</h3><span class="price">$150 / hr</span></div>
+      <div class="svc reveal" style="order:1">
+        <div class="top"><h3>Post-Production</h3><span class="pill">most requested</span><span class="price">$150 / hr</span></div>
         <p class="blurb">Broadcast-clean audio, on time, every episode. For podcasters, video creators, and agencies. <em>From $125/hr on longer engagements.</em></p>
         <ul class="tiers">
           <li>Starter — one episode: clean-up, level, edit</li>
@@ -428,7 +429,7 @@
         <a href="#book" class="svc-cta">Get a post-production quote →</a>
       </div>
 
-      <div class="svc spotlight reveal d1">
+      <div class="svc spotlight reveal d1" style="order:2">
         <div class="top"><h3>Mixing &amp; Mastering</h3><span class="pill">spotlight</span><span class="price quote">Quote on request</span></div>
         <p class="blurb">A release-ready <b>master</b> that holds up next to anything in the playlist. For independent artists and labels. <em>Mastering is a premium specialty — through Rose International, JP provided Audio Engineering III services for Meta, mixing &amp; mastering for game projects and a music initiative. Recent release: co-produced, mixed &amp; mastered MATELLUS — &ldquo;Playing with Fire&rdquo; (2026).</em></p>
         <ul class="tiers">
@@ -439,9 +440,9 @@
         <a href="#book" class="svc-cta">Send me your track →</a>
       </div>
 
-      <div class="svc reveal" style="grid-column:1/-1">
+      <div class="svc reveal" style="grid-column:1/-1;order:3">
         <div class="top"><h3>DJ Services</h3><span class="price">$250–$350 / hr</span></div>
-        <p class="blurb">The right energy for the room, handled end to end. Weddings, clubs, private &amp; corporate events — San Francisco / Bay Area + travel.</p>
+        <p class="blurb">The right energy for the room, handled end to end. Weddings, clubs, private &amp; corporate events — available to travel; for events that require it, travel and lodging are arranged and included in the quote.</p>
         <ul class="tiers">
           <li><b>DJ only</b> — you provide the sound system — <b>$250/hr</b></li>
           <li><b>Full production</b> <span class="pill">most pick</span> — I bring speakers + lights — <b>$350/hr</b></li>
@@ -586,7 +587,7 @@
       <div class="bio reveal d1">
         <p>I'm JP Dutreuil, the engineer behind Hrmonik. Most recently, through <b>Rose International</b>, I <b>provided Audio Engineering III services for Meta</b> (Jan 2024–April 2025) — building Foley and sound design for video game titles, <b>mixing and mastering</b> audio for game projects and a music initiative, and writing <b>AI-assisted automation in JavaScript (SoundFlow)</b> to speed up the work. That's the part most engineers can't offer: I script my own pipeline.</p>
         <p>That builds on seven years (2016–2023) as a full-time <b>Immersive Audio Producer and Mix Engineer at Salesforce</b> — designing and mixing sound for the <b>Salesforce World Tour Keynote featuring Metallica</b>, the <b>Think Outside the Quota</b> series, immersive activations across <b>Dreamforce</b>, and the <b>Blazing Trails</b> podcast. Earlier I consulted for <b>Dolby Laboratories</b> on new audio technologies, after training as an electrical engineering technologist at RIT and going deep into sound at Pyramind Studios in San Francisco.</p>
-        <p>I'm <b>Avid Pro Tools HD certified</b> (Operator, Music) and work across immersive sound design, dialogue and VO/ADR/foley editing, and mixing &amp; mastering in both analog and digital rigs. Based in the <b>San Francisco / Bay Area</b> — with post-production and mixing/mastering available <b>remotely, for clients anywhere</b>.</p>
+        <p>I'm <b>Avid Pro Tools HD certified</b> (Operator, Music) and work across immersive sound design, dialogue and VO/ADR/foley editing, and mixing &amp; mastering in both analog and digital rigs. Post-production and mixing/mastering delivered <b>remotely, for clients anywhere</b>, with DJ dates <b>available to travel</b>.</p>
       </div>
     </div>
   </div>
@@ -616,7 +617,7 @@
       <h2>Tell me about the project.</h2>
       <p class="lead">Send your date and a couple of lines about what you need — I'll come back with the right package and a quote.</p>
       <p class="contact-line">Prefer email? <b>music@hrmonik.com</b></p>
-      <p class="contact-line"><b>San Francisco / Bay Area</b> · DJ booking local + travel · post &amp; mix/master remote, clients anywhere</p>
+      <p class="contact-line">DJ booking, available to travel · post &amp; mix/master remote, clients anywhere</p>
       <p class="contact-line">A deposit is required to hold DJ dates.</p>
       <p style="margin-top:24px"><a href="#book" class="btn ghost">Book a call →</a></p>
     </div>
@@ -658,7 +659,7 @@
         <path d="M26.9 23.2 L29.7 25.4 L32.9 27.9 L36.6 30.6 L40.7 33.5 L45.2 36.4 L50.1 39.3 L55.2 42.2 L60.6 44.9 L66.2 47.4 L71.9 49.7 L77.8 51.6 L83.8 53.1 L89.8 54.2 L95.9 54.8 L101.9 54.8 L108.0 54.0 L114.4 52.6 L121.0 50.5 L127.8 47.9 L134.8 44.9 L142.0 41.5 L149.2 37.9 L156.5 34.2 L163.8 30.5 L171.0 26.8 L178.3 23.3 L185.4 20.1 L192.4 17.4 L199.3 15.1 L205.9 13.5 L212.6 13.9 L219.5 15.0 L226.5 16.5 L233.7 18.5 L240.8 20.8 L247.9 23.4 L254.9 26.2 L261.7 29.0 L268.2 31.9 L274.4 34.8 L280.1 37.5 L285.4 39.9 L290.2 42.1 L294.3 43.9 L297.7 45.2" style="stroke-width:0.9;opacity:0.2"/>
       </svg>
     </div>
-    <div class="ftag">Engineered end to end · San Francisco / Bay Area</div>
+    <div class="ftag">Engineered end to end · remote, clients anywhere</div>
     <div class="socials">
       <a href="https://www.instagram.com/hrmonik" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.mixcloud.com/hrmonik/" target="_blank" rel="noopener">Mixcloud</a>
