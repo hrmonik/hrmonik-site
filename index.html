@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>document.documentElement.className += ' js';</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hrmonik — Audio Engineer, Producer &amp; DJ · San Francisco / Bay Area</title>
+<meta name="description" content="San Francisco / Bay Area audio engineer & DJ. Recording, sound design, post-production, mixing/mastering (remote, clients anywhere), and Bay Area event DJ services. Hear the work and get a quote." />
+<!-- PREVIEW MOCKUP — "WOW" variant (v3, live-logo) · not published. Proposed hrmonik.com redesign matched to the live brand. -->
+<!-- The hero/nav/footer marks are the real hrmonik logo-white.png waveform RECREATED as animated inline SVG so it can move. -->
+<!-- LOGO PLACEHOLDER: the exact source file logo-white.png lives in this same folder — drop it in any <img src="logo-white.png"> for static use. -->
+<!-- Montserrat 300 used as the closest free stand-in for Proxima Nova Light. Swap in 'proxima-nova' (Typekit) at publish if licensed. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#000000; --bg2:#0a0a0a; --line:#1c1c1c; --line2:#2a2a2a;
+    --text:#ffffff; --muted:#9a9a9a; --dim:#5e5e5e;
+    --maxw:1080px;
+    --glow:0 0 60px rgba(255,255,255,.06);
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--text);
+    font-family:'proxima-nova','Montserrat','Helvetica Neue',Arial,sans-serif;
+    font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+  .ls{text-transform:uppercase;letter-spacing:3px;font-weight:300}
+  .preview-banner{
+    background:#0a0a0a;color:var(--dim);text-align:center;font-size:10.5px;
+    padding:8px 14px;border-bottom:1px solid var(--line);
+    text-transform:uppercase;letter-spacing:2px;font-weight:300;position:relative;z-index:3;
+  }
+
+  /* ---------- SCROLL REVEAL ---------- */
+  .reveal{transition:opacity 1s var(--ease),transform 1.05s var(--ease)}
+  .js .reveal{opacity:0;transform:translateY(40px) scale(.985)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.09s}.reveal.d2{transition-delay:.18s}
+  .reveal.d3{transition-delay:.27s}.reveal.d4{transition-delay:.36s}
+  .reveal.d5{transition-delay:.45s}.reveal.d6{transition-delay:.54s}
+  @media(prefers-reduced-motion:reduce){
+    .reveal,.js .reveal{opacity:1;transform:none;transition:none}
+  }
+
+  /* ---------- NAV ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:background .4s}
+  header.scrolled{background:rgba(0,0,0,.9)}
+  nav{display:flex;flex-direction:column;align-items:center;gap:16px;padding:20px 0 18px}
+  .brand{display:flex;flex-direction:column;align-items:center;gap:9px}
+  /* white stacked-waveform logo mark — recreated from logo-white.png as live SVG */
+  .logo-mark{width:60px;height:30px;display:block;filter:drop-shadow(0 0 9px rgba(255,255,255,.22));overflow:visible}
+  .logo-mark path{stroke:#fff;fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+  .logo-word{font-size:14px;letter-spacing:6px;text-transform:uppercase;font-weight:300;color:#fff}
+  .navlinks{display:flex;gap:34px;align-items:center;flex-wrap:wrap;justify-content:center}
+  .navlinks a{color:#fff;font-size:12.5px;text-transform:uppercase;letter-spacing:3px;font-weight:300;opacity:.78;transition:opacity .25s;position:relative}
+  .navlinks a:not(.nav-cta)::after{
+    content:"";position:absolute;left:0;right:100%;bottom:-7px;height:1px;background:#fff;
+    transition:right .4s var(--ease);
+  }
+  .navlinks a:not(.nav-cta):hover{opacity:1}
+  .navlinks a:not(.nav-cta):hover::after{right:0}
+  .navlinks a.nav-cta{border:1px solid var(--line2);padding:9px 18px;opacity:.9;transition:border-color .3s,box-shadow .3s,opacity .3s}
+  .navlinks a.nav-cta:hover{border-color:#fff;opacity:1;box-shadow:var(--glow)}
+  .burger{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer}
+  .btn{
+    display:inline-block;background:transparent;color:#fff;border:1px solid #fff;
+    font-size:12px;text-transform:uppercase;letter-spacing:3px;font-weight:300;
+    padding:14px 30px;cursor:pointer;transition:background .3s var(--ease),color .3s,box-shadow .3s,transform .3s;
+    position:relative;
+  }
+  .btn:hover{background:#fff;color:#000;box-shadow:0 0 46px rgba(255,255,255,.28);transform:translateY(-3px)}
+  .btn.ghost{border-color:var(--line2);color:var(--muted)}
+  .btn.ghost:hover{border-color:#fff;color:#fff;background:transparent;box-shadow:var(--glow)}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;padding:74px 0 116px;text-align:center;overflow:hidden;min-height:94vh;display:flex;align-items:center}
+  #waveCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.38}
+  .hero-vignette{position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:radial-gradient(ellipse 72% 60% at 50% 42%,rgba(0,0,0,0) 0%,rgba(0,0,0,.5) 68%,#000 100%)}
+  .hero .wrap{position:relative;z-index:2;width:100%}
+
+  /* THE LIVE LOGO — animated stacked-waveform mark, the centerpiece */
+  .hero-logo-wrap{position:relative;margin:0 auto 30px;width:min(560px,86vw)}
+  .hero-logo{display:block;width:100%;height:auto;overflow:visible;
+    filter:drop-shadow(0 0 22px rgba(255,255,255,.20)) drop-shadow(0 0 60px rgba(255,255,255,.08))}
+  .hero-logo path{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+  .hero-logo .echo{stroke:rgba(255,255,255,.16)}
+  .hero-logo-tag{display:block;margin-top:6px;color:var(--dim);font-size:10px;text-transform:uppercase;letter-spacing:5px;font-weight:300}
+
+  .eyebrow{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:3px;font-weight:300}
+  .hero .eyebrow{margin-bottom:8px}
+  .hero h1{font-size:clamp(32px,6vw,64px);line-height:1.1;font-weight:200;letter-spacing:1px;margin:20px auto 22px;max-width:16ch;text-shadow:0 2px 50px rgba(0,0,0,.8)}
+  .hero h1 .em{font-weight:300;display:block}
+  .hero p.sub{color:var(--muted);font-size:clamp(14px,1.9vw,17px);font-weight:300;max-width:62ch;margin:0 auto 36px;line-height:1.85}
+  .hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .trust{margin-top:32px;color:var(--dim);font-size:11px;text-transform:uppercase;letter-spacing:2.5px;font-weight:300}
+  .trust b{color:var(--muted);font-weight:300}
+  .scroll-cue{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);z-index:2;color:var(--dim);
+    font-size:9px;letter-spacing:3px;text-transform:uppercase;animation:bob 2.4s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);opacity:.5}50%{transform:translateX(-50%) translateY(8px);opacity:1}}
+
+  /* ---------- SECTION ---------- */
+  section.block{padding:104px 0;border-top:1px solid var(--line);position:relative;scroll-margin-top:150px}
+  .accent-line{display:block;margin:0 auto 8px;width:min(440px,72vw);height:22px;opacity:.6;overflow:visible}
+  .accent-line path{stroke:#fff;fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;
+    filter:drop-shadow(0 0 5px rgba(255,255,255,.22))}
+  .accent-line .a0{stroke-width:1.4;opacity:1}
+  .accent-line .a1{stroke-width:1;opacity:.5}
+  .accent-line .a2{stroke-width:1;opacity:.3}
+  .sec-head{text-align:center;max-width:680px;margin:0 auto 64px}
+  .sec-head .eyebrow{margin-bottom:18px}
+  .sec-head h2{font-size:clamp(22px,3.4vw,34px);font-weight:200;letter-spacing:1px;line-height:1.25}
+  .sec-head p{color:var(--muted);margin-top:18px;font-size:15px;font-weight:300;line-height:1.85}
+
+  /* ---------- SERVICES ---------- */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line)}
+  .svc{background:var(--bg);padding:38px 34px;transition:background .4s var(--ease),transform .4s var(--ease),box-shadow .4s;position:relative}
+  .svc::before{content:"";position:absolute;top:0;left:0;width:0;height:1px;background:#fff;transition:width .5s var(--ease)}
+  .svc:hover{background:var(--bg2);transform:translateY(-4px);box-shadow:0 0 54px rgba(255,255,255,.10);z-index:2}
+  .svc:hover::before{width:100%}
+  .svc .top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .svc h3{font-size:15px;font-weight:300;text-transform:uppercase;letter-spacing:3px}
+  .price{color:#fff;font-weight:300;font-size:13px;letter-spacing:1.5px;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .price.quote{color:var(--dim);text-transform:uppercase;letter-spacing:2px;font-size:11px}
+  .svc .blurb{color:var(--muted);font-size:13.5px;font-weight:300;margin:16px 0 22px;line-height:1.8}
+  .svc .blurb b{color:#fff;font-weight:400}
+  .svc .blurb em{color:var(--muted);font-style:normal;display:block;margin-top:8px;font-size:12.5px;color:var(--dim)}
+  .tiers{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
+  .tiers li{font-size:12.5px;font-weight:300;padding-left:20px;position:relative;color:var(--muted);letter-spacing:.3px}
+  .tiers li::before{content:"—";position:absolute;left:0;color:var(--dim)}
+  .tiers li b{color:#fff;font-weight:400}
+  .pill{display:inline-block;font-size:9px;font-weight:300;color:var(--muted);border:1px solid var(--line2);text-transform:uppercase;letter-spacing:2px;padding:3px 9px;margin-left:8px;vertical-align:middle}
+  .svc.spotlight{box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
+  .svc.spotlight .pill{color:#fff;border-color:#fff}
+  .retainer{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;font-weight:300;margin-bottom:20px}
+  .svc a.svc-cta{font-size:11px;text-transform:uppercase;letter-spacing:3px;font-weight:300;color:#fff;opacity:.7;border-bottom:1px solid var(--line2);padding-bottom:3px;transition:opacity .25s,border-color .25s,letter-spacing .3s}
+  .svc a.svc-cta:hover{opacity:1;border-color:#fff;letter-spacing:4px}
+
+  /* ---------- WORK ---------- */
+  .credits{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line)}
+  .credit{display:flex;flex-direction:column;gap:9px;background:var(--bg);padding:26px 28px;transition:background .4s var(--ease),transform .4s var(--ease),box-shadow .4s;position:relative}
+  a.credit:hover{background:var(--bg2);transform:translateY(-4px);box-shadow:var(--glow);z-index:2}
+  .credit.hot{background:var(--bg2);box-shadow:inset 0 0 0 1px rgba(255,255,255,.10)}
+  .credit .ctag{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dim);font-weight:300}
+  .credit .cname{font-size:15px;color:var(--text);font-weight:300;line-height:1.5;letter-spacing:.5px}
+  .credit .cname b{font-weight:400}
+  .credit .clink{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:2.5px;font-weight:300;margin-top:2px;transition:letter-spacing .3s,color .25s}
+  a.credit:hover .clink{color:#fff;letter-spacing:3.5px}
+  .credit-note{text-align:center;color:var(--dim);font-size:12.5px;font-weight:300;max-width:780px;margin:34px auto 0;line-height:1.9}
+  .credit-note b{color:var(--muted);font-weight:400}
+  .embeds{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+  .embed{background:var(--bg);padding:34px 24px;text-align:center;min-height:170px;display:flex;flex-direction:column;justify-content:center;gap:12px;transition:background .4s,transform .4s var(--ease)}
+  .embed:hover{background:var(--bg2);transform:translateY(-4px)}
+  .embed .plat{font-weight:300;font-size:14px;text-transform:uppercase;letter-spacing:3px}
+  .embed .ph{font-size:10px;color:var(--dim);letter-spacing:2px;text-transform:uppercase}
+  .embed a{color:var(--muted);font-size:11px;letter-spacing:1px;word-break:break-all;transition:color .25s}
+  .embed a:hover{color:#fff}
+
+  /* ---------- ABOUT ---------- */
+  .about{display:grid;grid-template-columns:.82fr 1.18fr;gap:60px;align-items:start;max-width:940px;margin:0 auto}
+  /* refined, clearly-intentional portrait placeholder — an elegantly framed
+     element, not a dominating empty void. Drop the real photo in as a
+     background-image / <img> at publish; the hairline frame + label stay tasteful. */
+  .about .photo{
+    position:relative;background:linear-gradient(165deg,#0d0d0d 0%,#060606 100%);
+    border:1px solid var(--line2);aspect-ratio:4/5;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+    text-align:center;padding:28px;transition:box-shadow .4s var(--ease),border-color .4s;
+  }
+  .about .photo:hover{box-shadow:var(--glow);border-color:#3a3a3a}
+  .about .photo .photo-frame{position:absolute;inset:11px;border:1px solid var(--line);pointer-events:none}
+  .about .photo .photo-wave{position:relative;z-index:1;width:96px;height:22px;overflow:visible;opacity:.5}
+  .about .photo .photo-wave path{stroke:#fff;fill:none;stroke-width:1;stroke-linecap:round;vector-effect:non-scaling-stroke}
+  .about .photo .photo-label{position:relative;z-index:1;font-size:11px;text-transform:uppercase;letter-spacing:3px;font-weight:300;color:var(--muted)}
+  .about .photo .photo-sub{position:relative;z-index:1;font-size:9px;text-transform:uppercase;letter-spacing:2px;font-weight:300;color:var(--dim)}
+  .about .bio p{color:var(--muted);margin-bottom:18px;font-size:14.5px;font-weight:300;line-height:1.9}
+  .about .bio p b{color:#fff;font-weight:400}
+  .about .bio p:last-of-type{margin-bottom:0}
+  .about .todo{font-size:11px;color:var(--dim);border-left:1px solid var(--line2);padding-left:16px;margin-top:24px;line-height:1.8;text-transform:uppercase;letter-spacing:1.5px}
+
+  /* ---------- TRUSTED STRIP ---------- */
+  .truststrip{display:flex;flex-wrap:wrap;justify-content:center;gap:20px 44px;align-items:center}
+  .truststrip span{font-size:clamp(15px,2.2vw,22px);font-weight:200;letter-spacing:2px;text-transform:uppercase;color:#fff;opacity:.6;transition:opacity .3s,text-shadow .3s;cursor:default}
+  .truststrip span:hover{opacity:1;text-shadow:0 0 30px rgba(255,255,255,.4)}
+  .truststrip span i{font-size:10px;font-weight:300;color:var(--dim);font-style:normal;letter-spacing:1.5px;display:block;margin-top:3px}
+  .todo-note{text-align:center;color:var(--dim);font-size:11px;text-transform:uppercase;letter-spacing:1.5px;margin-top:34px;font-weight:300;line-height:1.9}
+
+  /* ---------- BOOKING ---------- */
+  #book{background:var(--bg2)}
+  .bookgrid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+  .bookgrid h2{font-size:clamp(22px,3.4vw,32px);font-weight:200;letter-spacing:1px;margin:18px 0 18px}
+  .bookgrid .lead{color:var(--muted);font-size:15px;font-weight:300;margin-bottom:30px;line-height:1.9}
+  .contact-line{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:2px;font-weight:300;margin-bottom:14px;line-height:1.7}
+  .contact-line b{color:#fff;font-weight:400}
+  form{display:flex;flex-direction:column;gap:18px}
+  label{font-size:10px;text-transform:uppercase;letter-spacing:2.5px;font-weight:300;color:var(--dim);margin-bottom:-10px}
+  input,select,textarea{
+    background:transparent;border:none;border-bottom:1px solid var(--line2);padding:11px 2px;
+    color:#fff;font-size:14px;font-weight:300;font-family:inherit;width:100%;letter-spacing:.5px;transition:border-color .3s;
+  }
+  input::placeholder,textarea::placeholder{color:var(--dim)}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:#fff}
+  select{cursor:pointer}
+  select option{background:#0a0a0a;color:#fff}
+  textarea{resize:vertical;min-height:80px}
+  form .btn{margin-top:10px;align-self:flex-start}
+  .formnote{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1.5px;margin-top:6px}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line);padding:64px 0 56px;text-align:center;position:relative;z-index:1}
+  footer .fmark{display:flex;justify-content:center;margin-bottom:24px;opacity:.8}
+  footer .fmark svg{width:200px;height:auto;overflow:visible;filter:drop-shadow(0 0 12px rgba(255,255,255,.18))}
+  footer .fmark path{stroke:#fff;fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+  footer .ftag{font-weight:300;text-transform:uppercase;letter-spacing:4px;font-size:13px;margin-bottom:28px;color:#fff}
+  .socials{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-bottom:26px}
+  .socials a{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:2.5px;font-weight:300;transition:color .25s,letter-spacing .3s}
+  .socials a:hover{color:#fff;letter-spacing:3.5px}
+  footer .fmail{color:var(--muted);font-size:12px;letter-spacing:2px}
+  footer .fnote{color:var(--dim);font-size:10px;text-transform:uppercase;letter-spacing:1.5px;margin-top:30px;max-width:640px;margin-left:auto;margin-right:auto;line-height:1.9}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:820px){
+    .navlinks{display:none}
+    .navlinks.open{display:flex;flex-direction:column;gap:20px;margin-top:6px}
+    .burger{display:block;position:absolute;right:26px;top:24px}
+    nav{position:relative}
+    .grid,.embeds,.about,.bookgrid,.credits{grid-template-columns:1fr}
+    .about{gap:40px}
+    .about .photo{aspect-ratio:4/5;max-width:300px;margin:0 auto}
+    section.block{padding:72px 0}
+    .hero{padding:54px 0 70px;min-height:86vh}
+  }
+
+  /* ============================================================
+     PAGE-WIDE MOTION (wow v3) — bolder, still elegant white-on-black
+     Degrades to static under prefers-reduced-motion / no-JS.
+     ============================================================ */
+  section.block{z-index:1}
+  .hero{z-index:1}
+
+  /* --- slow-drifting sine backdrop behind every section (a touch stronger) --- */
+  .bg-drift{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+  .bg-drift .drift{position:absolute;left:-50%;width:200%;height:46vh}
+  .bg-drift .drift path{stroke:#fff;stroke-width:1;fill:none;vector-effect:non-scaling-stroke}
+  .bg-drift .drift-a{top:11%;opacity:.07;animation:driftA 46s ease-in-out infinite alternate}
+  .bg-drift .drift-b{top:45%;opacity:.055;animation:driftB 59s ease-in-out infinite alternate}
+  .bg-drift .drift-c{top:77%;opacity:.04;animation:driftA 71s ease-in-out infinite alternate-reverse}
+  @keyframes driftA{from{transform:translateX(0) translateY(0)}to{transform:translateX(-9%) translateY(12px)}}
+  @keyframes driftB{from{transform:translateX(0) translateY(0)}to{transform:translateX(8%) translateY(-14px)}}
+
+  /* --- section headings: underline that draws in on reveal --- */
+  .sec-head h2{position:relative;display:inline-block;padding-bottom:16px}
+  .sec-head h2::after{
+    content:"";position:absolute;left:50%;bottom:0;height:1px;width:0;
+    background:linear-gradient(90deg,transparent,#fff,transparent);
+    transform:translateX(-50%);transition:width 1.1s var(--ease) .25s;
+  }
+  .js .sec-head.in h2::after,html:not(.js) .sec-head h2::after{width:148px}
+
+  /* --- credit cards: sweeping highlight + stronger lift/glow --- */
+  a.credit{overflow:hidden}
+  a.credit::after{
+    content:"";position:absolute;top:0;left:-65%;width:48%;height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.16),transparent);
+    transform:skewX(-18deg);transition:left .7s var(--ease);pointer-events:none;
+  }
+  a.credit:hover::after{left:135%}
+  a.credit:hover{box-shadow:0 0 60px rgba(255,255,255,.16),inset 0 0 0 1px rgba(255,255,255,.24);transform:translateY(-5px)}
+
+  /* --- spotlight card: continuous shimmer + breathing glow (bolder) --- */
+  .svc.spotlight{animation:spotPulse 4.6s ease-in-out infinite}
+  .svc.spotlight::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.09) 50%,transparent 60%);
+    background-size:250% 100%;animation:shine 5.4s linear infinite;
+  }
+  @keyframes spotPulse{
+    0%,100%{box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+    50%{box-shadow:inset 0 0 0 1px rgba(255,255,255,.30),0 0 60px rgba(255,255,255,.09)}
+  }
+  @keyframes shine{0%{background-position:125% 0}100%{background-position:-25% 0}}
+  .credit.hot{animation:hotPulse 5s ease-in-out infinite}
+  @keyframes hotPulse{
+    0%,100%{box-shadow:inset 0 0 0 1px rgba(255,255,255,.11)}
+    50%{box-shadow:inset 0 0 0 1px rgba(255,255,255,.26),0 0 52px rgba(255,255,255,.07)}
+  }
+
+  /* --- trusted strip: seamless marquee + sequential glow --- */
+  .truststrip.marquee{flex-wrap:nowrap;justify-content:flex-start;overflow:hidden;gap:0;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+            mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+  .trust-track{display:flex;flex:0 0 auto;align-items:center;gap:44px;padding-right:44px;animation:marq 30s linear infinite}
+  .truststrip.marquee:hover .trust-track{animation-play-state:paused}
+  .trust-track span{animation:trustGlow 5.2s ease-in-out infinite;white-space:nowrap}
+  .trust-track span:nth-child(2){animation-delay:.7s}
+  .trust-track span:nth-child(3){animation-delay:1.4s}
+  .trust-track span:nth-child(4){animation-delay:2.1s}
+  .trust-track span:nth-child(5){animation-delay:2.8s}
+  .trust-track span:nth-child(6){animation-delay:3.5s}
+  .trust-track span:nth-child(7){animation-delay:4.2s}
+  @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+  @keyframes trustGlow{0%,100%{opacity:.5}50%{opacity:1;text-shadow:0 0 30px rgba(255,255,255,.45)}}
+
+  /* --- honour reduced-motion everywhere: freeze to a clean static state --- */
+  @media(prefers-reduced-motion:reduce){
+    .bg-drift .drift,
+    .svc.spotlight,.svc.spotlight::after,
+    .credit.hot,.trust-track,.trust-track span,.scroll-cue{animation:none!important}
+    .sec-head h2::after{transition:none;width:148px}
+    .js .reveal{opacity:1;transform:none}
+  }
+
+</style>
+</head>
+<body>
+
+<!-- SLOW-DRIFTING SINE BACKDROP — keeps the whole page quietly alive behind every section -->
+<div class="bg-drift" aria-hidden="true">
+  <svg class="drift drift-a" viewBox="0 0 1440 200" preserveAspectRatio="none"><path d="M0 100 Q180 30 360 100 T720 100 T1080 100 T1440 100"/></svg>
+  <svg class="drift drift-b" viewBox="0 0 1440 200" preserveAspectRatio="none"><path d="M0 100 Q120 165 240 100 T480 100 T720 100 T960 100 T1200 100 T1440 100"/></svg>
+  <svg class="drift drift-c" viewBox="0 0 1440 200" preserveAspectRatio="none"><path d="M0 100 Q240 45 480 100 T960 100 T1440 100"/></svg>
+</div>
+
+<div class="preview-banner">Preview mockup — &ldquo;wow&rdquo; variant · proposed hrmonik.com redesign · not published · placeholders &amp; TODOs marked for real assets</div>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <nav>
+      <a href="#home" class="brand" aria-label="Hrmonik home">
+        <!-- LOGO MARK: real hrmonik stacked-waveform, recreated as live SVG (animated by JS, static fallback in markup). -->
+        <svg class="logo-mark" id="navLogo" viewBox="0 0 600 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <path d="M51.2 95.6 L55.4 98.9 L60.3 103.4 L65.8 109.0 L71.9 115.3 L78.4 122.3 L85.5 129.8 L93.0 137.5 L100.9 145.4 L109.1 153.2 L117.6 160.8 L126.4 168.0 L135.4 174.6 L144.6 180.5 L153.8 185.4 L163.2 189.2 L172.6 191.7 L182.0 192.8 L191.3 192.2 L200.8 189.5 L210.7 184.6 L220.9 177.7 L231.3 169.3 L242.0 159.5 L253.0 148.6 L264.1 137.0 L275.3 124.9 L286.6 112.6 L298.0 100.4 L309.3 88.7 L320.7 77.7 L331.9 67.6 L343.1 58.9 L354.1 51.7 L364.9 46.4 L375.5 43.2 L385.8 42.6 L396.2 44.4 L406.8 48.6 L417.7 54.7 L428.8 62.6 L439.9 72.0 L451.1 82.7 L462.1 94.3 L473.1 106.7 L483.8 119.6 L494.2 132.7 L504.2 145.8 L513.8 158.6 L522.8 170.8 L531.2 182.3 L539.0 192.8 L546.0 201.9 L552.2 209.5 L557.4 215.3" style="stroke-width:2;opacity:1"/>
+          <path d="M51.2 96.9 L55.4 101.5 L60.3 107.4 L65.8 114.1 L71.9 121.7 L78.4 129.9 L85.5 138.6 L93.0 147.4 L100.9 156.4 L109.1 165.2 L117.6 173.6 L126.4 181.6 L135.4 188.9 L144.6 195.4 L153.8 200.8 L163.2 205.0 L172.6 207.8 L182.0 209.0 L191.3 208.5 L200.8 205.7 L210.7 200.7 L220.9 193.5 L231.3 184.7 L242.0 174.4 L253.0 162.9 L264.1 150.6 L275.3 137.7 L286.6 124.5 L298.0 111.4 L309.3 98.6 L320.7 86.5 L331.9 75.3 L343.1 65.3 L354.1 56.9 L364.9 50.3 L375.5 45.9 L385.8 43.9 L396.2 45.7 L406.8 49.9 L417.7 56.0 L428.8 63.9 L439.9 73.3 L451.1 84.0 L462.1 95.6 L473.1 108.0 L483.8 120.9 L494.2 134.0 L504.2 147.1 L513.8 159.9 L522.8 172.1 L531.2 183.6 L539.0 194.1 L546.0 203.2 L552.2 210.8 L557.4 216.6" style="stroke-width:1.5;opacity:0.72"/>
+          <path d="M51.2 98.2 L55.4 104.2 L60.3 111.3 L65.8 119.3 L71.9 128.2 L78.4 137.6 L85.5 147.4 L93.0 157.3 L100.9 167.3 L109.1 177.1 L117.6 186.4 L126.4 195.2 L135.4 203.2 L144.6 210.3 L153.8 216.2 L163.2 220.8 L172.6 223.9 L182.0 225.3 L191.3 224.8 L200.8 222.0 L210.7 216.8 L220.9 209.4 L231.3 200.1 L242.0 189.3 L253.0 177.2 L264.1 164.2 L275.3 150.5 L286.6 136.4 L298.0 122.4 L309.3 108.5 L320.7 95.3 L331.9 82.9 L343.1 71.7 L354.1 62.1 L364.9 54.2 L375.5 48.5 L385.8 45.2 L396.2 47.0 L406.8 51.2 L417.7 57.3 L428.8 65.2 L439.9 74.6 L451.1 85.3 L462.1 96.9 L473.1 109.3 L483.8 122.2 L494.2 135.3 L504.2 148.4 L513.8 161.2 L522.8 173.4 L531.2 184.9 L539.0 195.4 L546.0 204.5 L552.2 212.1 L557.4 217.9" style="stroke-width:1.3;opacity:0.56"/>
+          <path d="M51.2 99.5 L55.4 106.8 L60.3 115.2 L65.8 124.5 L71.9 134.6 L78.4 145.2 L85.5 156.2 L93.0 167.3 L100.9 178.3 L109.1 189.0 L117.6 199.3 L126.4 208.8 L135.4 217.6 L144.6 225.2 L153.8 231.6 L163.2 236.6 L172.6 240.0 L182.0 241.5 L191.3 241.1 L200.8 238.3 L210.7 232.9 L220.9 225.2 L231.3 215.5 L242.0 204.2 L253.0 191.5 L264.1 177.8 L275.3 163.3 L286.6 148.4 L298.0 133.3 L309.3 118.5 L320.7 104.1 L331.9 90.6 L343.1 78.2 L354.1 67.3 L364.9 58.1 L375.5 51.1 L385.8 46.5 L396.2 48.3 L406.8 52.5 L417.7 58.6 L428.8 66.5 L439.9 75.9 L451.1 86.6 L462.1 98.2 L473.1 110.6 L483.8 123.5 L494.2 136.6 L504.2 149.7 L513.8 162.5 L522.8 174.8 L531.2 186.2 L539.0 196.7 L546.0 205.8 L552.2 213.4 L557.4 219.2" style="stroke-width:1.1;opacity:0.43"/>
+          <path d="M51.2 100.8 L55.4 109.4 L60.3 119.1 L65.8 129.7 L71.9 141.1 L78.4 152.9 L85.5 165.0 L93.0 177.2 L100.9 189.2 L109.1 200.9 L117.6 212.1 L126.4 222.4 L135.4 231.9 L144.6 240.1 L153.8 247.1 L163.2 252.4 L172.6 256.1 L182.0 257.8 L191.3 257.4 L200.8 254.5 L210.7 248.9 L220.9 241.0 L231.3 230.9 L242.0 219.1 L253.0 205.8 L264.1 191.4 L275.3 176.1 L286.6 160.3 L298.0 144.3 L309.3 128.4 L320.7 112.9 L331.9 98.2 L343.1 84.6 L354.1 72.5 L364.9 62.0 L375.5 53.7 L385.8 47.8 L396.2 49.6 L406.8 53.8 L417.7 59.9 L428.8 67.8 L439.9 77.2 L451.1 87.9 L462.1 99.5 L473.1 111.9 L483.8 124.8 L494.2 137.9 L504.2 151.0 L513.8 163.8 L522.8 176.1 L531.2 187.5 L539.0 198.0 L546.0 207.1 L552.2 214.7 L557.4 220.5" style="stroke-width:1;opacity:0.33"/>
+          <path d="M51.2 102.1 L55.4 112.0 L60.3 123.0 L65.8 134.9 L71.9 147.5 L78.4 160.5 L85.5 173.8 L93.0 187.1 L100.9 200.2 L109.1 212.8 L117.6 224.9 L126.4 236.0 L135.4 246.2 L144.6 255.0 L153.8 262.5 L163.2 268.2 L172.6 272.2 L182.0 274.1 L191.3 273.8 L200.8 270.8 L210.7 265.0 L220.9 256.8 L231.3 246.3 L242.0 234.0 L253.0 220.1 L264.1 205.0 L275.3 188.9 L286.6 172.2 L298.0 155.2 L309.3 138.3 L320.7 121.7 L331.9 105.9 L343.1 91.1 L354.1 77.6 L364.9 65.9 L375.5 56.3 L385.8 49.1 L396.2 50.9 L406.8 55.1 L417.7 61.2 L428.8 69.1 L439.9 78.5 L451.1 89.2 L462.1 100.8 L473.1 113.2 L483.8 126.1 L494.2 139.2 L504.2 152.3 L513.8 165.1 L522.8 177.4 L531.2 188.8 L539.0 199.3 L546.0 208.4 L552.2 216.0 L557.4 221.8" style="stroke-width:0.9;opacity:0.25"/>
+        </svg>
+        <span class="logo-word">Hrmonik</span>
+      </a>
+      <div class="navlinks">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#testimonials">Credits</a>
+        <a href="#book" class="nav-cta">Book / Get a Quote</a>
+      </div>
+      <button class="burger" aria-label="Menu" onclick="document.querySelector('.navlinks').classList.toggle('open')">&#9776;</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <canvas id="waveCanvas" aria-hidden="true"></canvas>
+  <div class="hero-vignette" aria-hidden="true"></div>
+  <div class="wrap">
+    <!-- THE LIVE LOGO — the centerpiece. The real hrmonik waveform mark, recreated as animated SVG. -->
+    <div class="hero-logo-wrap">
+      <svg class="hero-logo" id="heroLogo" viewBox="0 0 600 300" preserveAspectRatio="xMidYMid meet" aria-label="Hrmonik">
+        <path d="M51.2 95.6 L55.4 98.9 L60.3 103.4 L65.8 109.0 L71.9 115.3 L78.4 122.3 L85.5 129.8 L93.0 137.5 L100.9 145.4 L109.1 153.2 L117.6 160.8 L126.4 168.0 L135.4 174.6 L144.6 180.5 L153.8 185.4 L163.2 189.2 L172.6 191.7 L182.0 192.8 L191.3 192.2 L200.8 189.5 L210.7 184.6 L220.9 177.7 L231.3 169.3 L242.0 159.5 L253.0 148.6 L264.1 137.0 L275.3 124.9 L286.6 112.6 L298.0 100.4 L309.3 88.7 L320.7 77.7 L331.9 67.6 L343.1 58.9 L354.1 51.7 L364.9 46.4 L375.5 43.2 L385.8 42.6 L396.2 44.4 L406.8 48.6 L417.7 54.7 L428.8 62.6 L439.9 72.0 L451.1 82.7 L462.1 94.3 L473.1 106.7 L483.8 119.6 L494.2 132.7 L504.2 145.8 L513.8 158.6 L522.8 170.8 L531.2 182.3 L539.0 192.8 L546.0 201.9 L552.2 209.5 L557.4 215.3" style="stroke-width:2;opacity:1"/>
+        <path d="M51.2 96.9 L55.4 101.5 L60.3 107.4 L65.8 114.1 L71.9 121.7 L78.4 129.9 L85.5 138.6 L93.0 147.4 L100.9 156.4 L109.1 165.2 L117.6 173.6 L126.4 181.6 L135.4 188.9 L144.6 195.4 L153.8 200.8 L163.2 205.0 L172.6 207.8 L182.0 209.0 L191.3 208.5 L200.8 205.7 L210.7 200.7 L220.9 193.5 L231.3 184.7 L242.0 174.4 L253.0 162.9 L264.1 150.6 L275.3 137.7 L286.6 124.5 L298.0 111.4 L309.3 98.6 L320.7 86.5 L331.9 75.3 L343.1 65.3 L354.1 56.9 L364.9 50.3 L375.5 45.9 L385.8 43.9 L396.2 45.7 L406.8 49.9 L417.7 56.0 L428.8 63.9 L439.9 73.3 L451.1 84.0 L462.1 95.6 L473.1 108.0 L483.8 120.9 L494.2 134.0 L504.2 147.1 L513.8 159.9 L522.8 172.1 L531.2 183.6 L539.0 194.1 L546.0 203.2 L552.2 210.8 L557.4 216.6" style="stroke-width:1.5;opacity:0.72"/>
+        <path d="M51.2 98.2 L55.4 104.2 L60.3 111.3 L65.8 119.3 L71.9 128.2 L78.4 137.6 L85.5 147.4 L93.0 157.3 L100.9 167.3 L109.1 177.1 L117.6 186.4 L126.4 195.2 L135.4 203.2 L144.6 210.3 L153.8 216.2 L163.2 220.8 L172.6 223.9 L182.0 225.3 L191.3 224.8 L200.8 222.0 L210.7 216.8 L220.9 209.4 L231.3 200.1 L242.0 189.3 L253.0 177.2 L264.1 164.2 L275.3 150.5 L286.6 136.4 L298.0 122.4 L309.3 108.5 L320.7 95.3 L331.9 82.9 L343.1 71.7 L354.1 62.1 L364.9 54.2 L375.5 48.5 L385.8 45.2 L396.2 47.0 L406.8 51.2 L417.7 57.3 L428.8 65.2 L439.9 74.6 L451.1 85.3 L462.1 96.9 L473.1 109.3 L483.8 122.2 L494.2 135.3 L504.2 148.4 L513.8 161.2 L522.8 173.4 L531.2 184.9 L539.0 195.4 L546.0 204.5 L552.2 212.1 L557.4 217.9" style="stroke-width:1.3;opacity:0.56"/>
+        <path d="M51.2 99.5 L55.4 106.8 L60.3 115.2 L65.8 124.5 L71.9 134.6 L78.4 145.2 L85.5 156.2 L93.0 167.3 L100.9 178.3 L109.1 189.0 L117.6 199.3 L126.4 208.8 L135.4 217.6 L144.6 225.2 L153.8 231.6 L163.2 236.6 L172.6 240.0 L182.0 241.5 L191.3 241.1 L200.8 238.3 L210.7 232.9 L220.9 225.2 L231.3 215.5 L242.0 204.2 L253.0 191.5 L264.1 177.8 L275.3 163.3 L286.6 148.4 L298.0 133.3 L309.3 118.5 L320.7 104.1 L331.9 90.6 L343.1 78.2 L354.1 67.3 L364.9 58.1 L375.5 51.1 L385.8 46.5 L396.2 48.3 L406.8 52.5 L417.7 58.6 L428.8 66.5 L439.9 75.9 L451.1 86.6 L462.1 98.2 L473.1 110.6 L483.8 123.5 L494.2 136.6 L504.2 149.7 L513.8 162.5 L522.8 174.8 L531.2 186.2 L539.0 196.7 L546.0 205.8 L552.2 213.4 L557.4 219.2" style="stroke-width:1.1;opacity:0.43"/>
+        <path d="M51.2 100.8 L55.4 109.4 L60.3 119.1 L65.8 129.7 L71.9 141.1 L78.4 152.9 L85.5 165.0 L93.0 177.2 L100.9 189.2 L109.1 200.9 L117.6 212.1 L126.4 222.4 L135.4 231.9 L144.6 240.1 L153.8 247.1 L163.2 252.4 L172.6 256.1 L182.0 257.8 L191.3 257.4 L200.8 254.5 L210.7 248.9 L220.9 241.0 L231.3 230.9 L242.0 219.1 L253.0 205.8 L264.1 191.4 L275.3 176.1 L286.6 160.3 L298.0 144.3 L309.3 128.4 L320.7 112.9 L331.9 98.2 L343.1 84.6 L354.1 72.5 L364.9 62.0 L375.5 53.7 L385.8 47.8 L396.2 49.6 L406.8 53.8 L417.7 59.9 L428.8 67.8 L439.9 77.2 L451.1 87.9 L462.1 99.5 L473.1 111.9 L483.8 124.8 L494.2 137.9 L504.2 151.0 L513.8 163.8 L522.8 176.1 L531.2 187.5 L539.0 198.0 L546.0 207.1 L552.2 214.7 L557.4 220.5" style="stroke-width:1;opacity:0.33"/>
+        <path d="M51.2 102.1 L55.4 112.0 L60.3 123.0 L65.8 134.9 L71.9 147.5 L78.4 160.5 L85.5 173.8 L93.0 187.1 L100.9 200.2 L109.1 212.8 L117.6 224.9 L126.4 236.0 L135.4 246.2 L144.6 255.0 L153.8 262.5 L163.2 268.2 L172.6 272.2 L182.0 274.1 L191.3 273.8 L200.8 270.8 L210.7 265.0 L220.9 256.8 L231.3 246.3 L242.0 234.0 L253.0 220.1 L264.1 205.0 L275.3 188.9 L286.6 172.2 L298.0 155.2 L309.3 138.3 L320.7 121.7 L331.9 105.9 L343.1 91.1 L354.1 77.6 L364.9 65.9 L375.5 56.3 L385.8 49.1 L396.2 50.9 L406.8 55.1 L417.7 61.2 L428.8 69.1 L439.9 78.5 L451.1 89.2 L462.1 100.8 L473.1 113.2 L483.8 126.1 L494.2 139.2 L504.2 152.3 L513.8 165.1 L522.8 177.4 L531.2 188.8 L539.0 199.3 L546.0 208.4 L552.2 216.0 L557.4 221.8" style="stroke-width:0.9;opacity:0.25"/>
+      </svg>
+      <span class="hero-logo-tag">Hrmonik · sound, alive</span>
+    </div>
+    <span class="eyebrow">San Francisco / Bay Area · Salesforce immersive-audio producer 2016–2023 · Pro Tools HD certified</span>
+    <h1>Brand-grade sound<span class="em">engineered end to end.</span></h1>
+    <p class="sub">Mix engineer, sound designer, and producer who spent seven years crafting immersive audio for Salesforce — the Metallica keynote, Dreamforce, brand films, podcasts — now taking on recording, post-production, mixing &amp; mastering, and sound design — remote for clients anywhere — plus event DJ work across the San Francisco / Bay Area.</p>
+    <div class="hero-ctas">
+      <a href="#book" class="btn">Get a Quote</a>
+      <a href="#work" class="btn ghost">Hear the work ↓</a>
+    </div>
+    <p class="trust"><b>Pro Tools HD</b> certified · <b>Salesforce</b> / <b>Dolby</b> experience · mic → master → dancefloor</p>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">Scroll</div>
+</section>
+
+<!-- SERVICES -->
+<section class="block" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <svg class="accent-line" viewBox="0 0 440 22" preserveAspectRatio="none" aria-hidden="true"><path class="a2" d="M0 11 L440 11"/><path class="a1" d="M0 11 L440 11"/><path class="a0" d="M0 11 L440 11"/></svg>
+      <span class="eyebrow">Services &amp; Rates</span>
+      <h2>Five services, one set of ears.</h2>
+      <p>Whether you need a record finished, a podcast that sounds broadcast-clean, original sound for a project, or the right energy on the floor — it's handled start to finish.</p>
+    </div>
+    <div class="grid">
+
+      <div class="svc reveal">
+        <div class="top"><h3>Recording</h3><span class="price quote">Quote on request</span></div>
+        <p class="blurb">A professionally tracked, edit-ready session. For artists, podcasters, and voice talent.</p>
+        <ul class="tiers">
+          <li>Starter — single song / short session, tracked + comped</li>
+          <li><b>Standard</b> <span class="pill">most pick</span> — full session + edit/tuning, stems delivered</li>
+          <li>Premium — multi-song / full day, edit + rough mix</li>
+        </ul>
+        <a href="#book" class="svc-cta">Book a session →</a>
+      </div>
+
+      <div class="svc reveal d1">
+        <div class="top"><h3>Sound Design</h3><span class="price quote">Quote on request</span></div>
+        <p class="blurb">Original, ready-to-drop sound for your project. For game/app studios, video &amp; ad producers, filmmakers.</p>
+        <ul class="tiers">
+          <li>Starter — small SFX pack / a few cues</li>
+          <li><b>Standard</b> <span class="pill">most pick</span> — scene/level set, delivered to spec</li>
+          <li>Premium — full-project sound design + revisions</li>
+        </ul>
+        <a href="#book" class="svc-cta">Start a project →</a>
+      </div>
+
+      <div class="svc reveal">
+        <div class="top"><h3>Post-Production</h3><span class="price">$150 / hr</span></div>
+        <p class="blurb">Broadcast-clean audio, on time, every episode. For podcasters, video creators, and agencies. <em>From $125/hr on longer engagements.</em></p>
+        <ul class="tiers">
+          <li>Starter — one episode: clean-up, level, edit</li>
+          <li><b>Standard</b> <span class="pill">most pick</span> — episode + music/SFX + mastered to spec</li>
+          <li>Premium — full multitrack + show-ready deliverables</li>
+        </ul>
+        <p class="retainer">Monthly retainer available (set episodes/mo) — from $125/hr</p>
+        <a href="#book" class="svc-cta">Get a post-production quote →</a>
+      </div>
+
+      <div class="svc spotlight reveal d1">
+        <div class="top"><h3>Mixing &amp; Mastering</h3><span class="pill">spotlight</span><span class="price quote">Quote on request</span></div>
+        <p class="blurb">A release-ready <b>master</b> that holds up next to anything in the playlist. For independent artists and labels. <em>Mastering is a premium specialty — through Rose International, JP provided Audio Engineering III for Meta, mixing &amp; mastering for game projects and a music initiative. Recent release: co-produced, mixed &amp; mastered MATELLUS — &ldquo;Playing with Fire&rdquo; (2026).</em></p>
+        <ul class="tiers">
+          <li>Starter — mix <i>or</i> master, one song</li>
+          <li><b>Standard</b> <span class="pill">most pick</span> — <b>mix + master</b>, one song, set revisions</li>
+          <li>Premium — full production: beat → mix → <b>master</b></li>
+        </ul>
+        <a href="#book" class="svc-cta">Send me your track →</a>
+      </div>
+
+      <div class="svc reveal" style="grid-column:1/-1">
+        <div class="top"><h3>DJ Services</h3><span class="price">$250–$350 / hr</span></div>
+        <p class="blurb">The right energy for the room, handled end to end. Weddings, clubs, private &amp; corporate events — San Francisco / Bay Area + travel.</p>
+        <ul class="tiers">
+          <li><b>DJ only</b> — you provide the sound system — <b>$250/hr</b></li>
+          <li><b>Full production</b> <span class="pill">most pick</span> — I bring speakers + lights — <b>$350/hr</b></li>
+          <li>Premium — extended set, full gear + lights, MC/coordination — <b>$350/hr</b> + add-ons</li>
+        </ul>
+        <p class="retainer">Venue residency / repeat monthly event — let's talk</p>
+        <a href="#book" class="svc-cta">Check my date →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="block" id="work">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <svg class="accent-line" viewBox="0 0 440 22" preserveAspectRatio="none" aria-hidden="true"><path class="a2" d="M0 11 L440 11"/><path class="a1" d="M0 11 L440 11"/><path class="a0" d="M0 11 L440 11"/></svg>
+      <span class="eyebrow">Selected Work / Credits</span>
+      <h2>Audio is a &ldquo;hear it to believe it&rdquo; business.</h2>
+      <p>So here it is — real, publicly documented productions. Each links to the actual work.</p>
+    </div>
+
+    <div class="credits">
+      <a class="credit reveal" href="https://www.youtube.com/watch?v=i3qQZpWI_aA" target="_blank" rel="noopener">
+        <span class="ctag">Sound Design &amp; Mix · 2021</span>
+        <span class="cname">Salesforce World Tour Keynote <b>featuring Metallica</b></span>
+        <span class="clink">Watch on YouTube →</span>
+      </a>
+      <a class="credit reveal d1" href="https://www.salesforce.com/plus/series/Think_Outside_the_Quota" target="_blank" rel="noopener">
+        <span class="ctag">Sound Design &amp; Mix · 7 episodes · 2022</span>
+        <span class="cname"><b>Think Outside the Quota</b> — Salesforce+ original series</span>
+        <span class="clink">Watch on Salesforce+ →</span>
+      </a>
+      <a class="credit reveal" href="https://www.youtube.com/watch?v=b8KWqYFbSSE" target="_blank" rel="noopener">
+        <span class="ctag">Sound Design &amp; Mix · 2021</span>
+        <span class="cname">How <b>Sonos</b> Creates Connected Customer Experiences</span>
+        <span class="clink">Watch on YouTube →</span>
+      </a>
+      <a class="credit reveal d1" href="https://www.youtube.com/watch?v=TbNv-TAB-hE" target="_blank" rel="noopener">
+        <span class="ctag">Sound Design &amp; Mix · 2019</span>
+        <span class="cname"><b>Mastercard</b> is a Trailblazer</span>
+        <span class="clink">Watch on YouTube →</span>
+      </a>
+      <a class="credit reveal" href="https://podcasts.apple.com/us/podcast/blazing-trails/id1259579050" target="_blank" rel="noopener">
+        <span class="ctag">Recording · Edit · Mix · 2019–2022</span>
+        <span class="cname"><b>Blazing Trails</b> — Salesforce podcast</span>
+        <span class="clink">Listen on Apple Podcasts →</span>
+      </a>
+      <a class="credit reveal d1" href="https://music.apple.com/us/album/major-moves-radio-edit/1257634949?i=1257634953" target="_blank" rel="noopener">
+        <span class="ctag">Composer · Producer · Mix · 2017</span>
+        <span class="cname"><b>Caslvx</b> — &ldquo;Major Moves&rdquo;</span>
+        <span class="clink">Listen on Apple Music →</span>
+      </a>
+      <div class="credit reveal">
+        <span class="ctag">Immersive Sound Design &amp; Mix · 2022</span>
+        <span class="cname"><b>Dreamforce</b> immersive sound activations — San Francisco</span>
+        <span class="clink">Lobby · entrance · booth activations</span>
+      </div>
+      <div class="credit hot reveal d1">
+        <span class="ctag">Current · Rose International — for Meta · music</span>
+        <span class="cname"><b>Mixing &amp; Mastering</b> for game projects and a music initiative</span>
+        <span class="clink">Release-grade master — a premium specialty</span>
+      </div>
+      <div class="credit hot reveal">
+        <span class="ctag">Current · Rose International — for Meta · gaming</span>
+        <span class="cname">Game-audio <b>Foley &amp; sound design</b> + AI/JavaScript (SoundFlow) automation</span>
+        <span class="clink">Creative and technical in one pair of hands</span>
+      </div>
+    </div>
+
+    <p class="credit-note reveal">Seven years of brand-grade audio for Salesforce, Dolby new-tech consulting, independent music production — and current <b>mixing &amp; mastering</b> plus game-audio and AI-automation work for game projects and a music initiative, provided through <b>Rose International</b> (Audio Engineering III for Meta). Brand names reference specific productions JP engineered — each with a public link above.</p>
+
+    <div class="sec-head reveal" style="margin-top:84px;margin-bottom:40px">
+      <span class="eyebrow">Music — production · mix &amp; master</span>
+      <h2 style="font-size:clamp(20px,2.6vw,26px)">Current releases</h2>
+      <p>The mixing &amp; mastering spotlight in the wild — a live 2026 release. More tracks added here over time.</p>
+    </div>
+    <div class="credits">
+      <a class="credit hot reveal" href="https://music.youtube.com/watch?v=h-6trLobrYo" target="_blank" rel="noopener">
+        <span class="ctag">Co-Produced · Mixed · Mastered · 2026</span>
+        <span class="cname"><b>MATELLUS</b> — &ldquo;Playing with Fire&rdquo;</span>
+        <span class="clink">Listen on YouTube Music →</span>
+      </a>
+      <div class="credit reveal d1" style="border:1px solid var(--line2);background:transparent">
+        <span class="ctag" style="color:var(--muted)">Next release</span>
+        <span class="cname" style="color:var(--dim)">TODO: add future tracks here</span>
+        <span class="clink">Ongoing music-production section</span>
+      </div>
+    </div>
+
+    <div class="sec-head reveal" style="margin-top:88px;margin-bottom:40px">
+      <span class="eyebrow">Listen / Follow</span>
+      <h2 style="font-size:clamp(20px,2.6vw,26px)">Mixes, sets &amp; productions</h2>
+    </div>
+    <div class="embeds">
+      <div class="embed reveal">
+        <div class="plat">Mixcloud</div>
+        <div class="ph">DJ-set player embeds here</div>
+        <a href="https://www.mixcloud.com/hrmonik/" target="_blank" rel="noopener">mixcloud.com/hrmonik</a>
+      </div>
+      <div class="embed reveal d1">
+        <div class="plat">SoundCloud</div>
+        <div class="ph">Mixes &amp; production embeds here</div>
+        <a href="https://soundcloud.com/hrmonik" target="_blank" rel="noopener">soundcloud.com/hrmonik</a>
+      </div>
+      <div class="embed reveal d2">
+        <div class="plat">Spotify</div>
+        <div class="ph">Released work embeds here</div>
+        <a href="https://open.spotify.com/user/1225329394" target="_blank" rel="noopener">open.spotify.com/user/1225329394</a>
+      </div>
+      <div class="embed reveal">
+        <div class="plat">YouTube</div>
+        <div class="ph">Sets &amp; video embeds here</div>
+        <a href="https://www.youtube.com/channel/UC9eyKrUYS9GDKyv9mnXYZxQ" target="_blank" rel="noopener">youtube.com/@hrmonik</a>
+      </div>
+      <div class="embed reveal d1">
+        <div class="plat">Vimeo</div>
+        <div class="ph">Video / post work</div>
+        <a href="https://vimeo.com/user33064217" target="_blank" rel="noopener">vimeo.com/user33064217</a>
+      </div>
+      <div class="embed reveal d2" style="border:1px solid var(--line2)">
+        <div class="plat" style="color:var(--muted)">TODO: Featured</div>
+        <div class="ph">Pick 3–6 mixes / tracks / sets / post jobs + one line each</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px" class="reveal"><a href="#book" class="btn">Like what you hear? Get a quote</a></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="block" id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <svg class="accent-line" viewBox="0 0 440 22" preserveAspectRatio="none" aria-hidden="true"><path class="a2" d="M0 11 L440 11"/><path class="a1" d="M0 11 L440 11"/><path class="a0" d="M0 11 L440 11"/></svg>
+      <span class="eyebrow">About</span>
+      <h2>Brand-grade ears, the whole signal chain.</h2>
+    </div>
+    <div class="about">
+      <!-- Refined portrait placeholder — drop the real headshot in here (background-image or <img>) at publish. -->
+      <div class="photo reveal">
+        <span class="photo-frame" aria-hidden="true"></span>
+        <svg class="photo-wave" viewBox="0 0 96 22" preserveAspectRatio="none" aria-hidden="true"><path d="M0 11 Q12 1 24 11 T48 11 T72 11 T96 11"/></svg>
+        <span class="photo-label">Portrait</span>
+        <span class="photo-sub">Headshot · studio · DJ rig</span>
+      </div>
+      <div class="bio reveal d1">
+        <p>I'm JP Dutreuil, the engineer behind Hrmonik. I trained as an electrical engineering technologist at RIT, then went deep into sound at Pyramind Studios in San Francisco. For seven years (2016–2023) I was a full-time <b>Immersive Audio Producer and Mix Engineer at Salesforce</b> — designing and mixing sound for the <b>Salesforce World Tour Keynote featuring Metallica</b>, the <b>Think Outside the Quota</b> series, immersive activations across <b>Dreamforce</b>, and the <b>Blazing Trails</b> podcast — and I consulted for <b>Dolby Laboratories</b> on new audio technologies.</p>
+        <p>More recently, through <b>Rose International</b>, I <b>provided Audio Engineering III for Meta</b> — building Foley and sound design for video game titles, <b>mixing and mastering</b> audio for game projects and a music initiative, and writing <b>AI-assisted automation in JavaScript (SoundFlow)</b> to speed up the work. That's the part most engineers can't offer: I script my own pipeline.</p>
+        <p>I'm <b>Avid Pro Tools HD certified</b> (Operator, Music) and work across immersive sound design, dialogue and VO/ADR/foley editing, and mixing &amp; mastering in both analog and digital rigs. Based in the <b>San Francisco / Bay Area</b> — with post-production and mixing/mastering available <b>remotely, for clients anywhere</b>.</p>
+        <p class="todo">TODO: headshot / studio photos + gear / signature chain to add specificity. (Approved framing: &ldquo;Rose International — provided Audio Engineering III for Meta&rdquo; — no internal Meta product/team names.)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUSTED BY / CREDITS -->
+<section class="block" id="testimonials">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <svg class="accent-line" viewBox="0 0 440 22" preserveAspectRatio="none" aria-hidden="true"><path class="a2" d="M0 11 L440 11"/><path class="a1" d="M0 11 L440 11"/><path class="a0" d="M0 11 L440 11"/></svg>
+      <span class="eyebrow">Trusted with the sound for</span>
+      <h2>Productions you can actually go listen to.</h2>
+      <p>No invented quotes — just real, publicly linked work (see Selected Work above).</p>
+    </div>
+    <div class="truststrip reveal">
+      <span>Salesforce</span><span>Dreamforce</span><span>Sonos</span><span>Mastercard</span><span>Metallica <i>World Tour keynote</i></span><span>Dolby <i>new-tech consulting</i></span><span>Meta <i>via Rose International</i></span>
+    </div>
+    <p class="todo-note reveal">Brand names reference specific productions JP engineered, each linked in Selected Work — not claims of endorsement. (Optional: add 2–4 real client quotes later if available; none will be invented.)</p>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="block" id="book">
+  <div class="wrap bookgrid">
+    <div class="reveal">
+      <span class="eyebrow">Booking / Contact</span>
+      <h2>Tell me about the project.</h2>
+      <p class="lead">Send your date and a couple of lines about what you need — I'll come back with the right package and a quote.</p>
+      <p class="contact-line">Prefer email? <b>music@hrmonik.com</b></p>
+      <p class="contact-line"><b>San Francisco / Bay Area</b> · DJ booking local + travel · post &amp; mix/master remote, clients anywhere</p>
+      <p class="contact-line">Deposit: TODO (required to hold DJ dates)</p>
+      <p style="margin-top:24px"><a href="#" class="btn ghost" onclick="return false">Book a call → (TODO: real calendar link)</a></p>
+    </div>
+    <form class="reveal d1" onsubmit="event.preventDefault(); this.querySelector('.formnote').textContent='✓ Demo only — this preview form does not send. Wire to a real form/booking tool at publish.';">
+      <label>Name</label>
+      <input type="text" placeholder="Your name" required />
+      <label>Email</label>
+      <input type="email" placeholder="you@email.com" required />
+      <label>Service</label>
+      <select>
+        <option>Recording</option>
+        <option>Sound Design</option>
+        <option selected>Post-Production</option>
+        <option>Mixing / Mastering</option>
+        <option>DJ Services</option>
+        <option>Not sure yet</option>
+      </select>
+      <label>Date needed / event date</label>
+      <input type="date" />
+      <label>Project details</label>
+      <textarea placeholder="A couple of lines about what you need..."></textarea>
+      <button type="submit" class="btn">Send &amp; get my quote</button>
+      <div class="formnote">Short by design — name, email, service &amp; date is enough to start.</div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="fmark" aria-hidden="true">
+      <!-- FOOTER MARK: real hrmonik stacked-waveform, recreated as live SVG. -->
+      <svg id="footerLogo" viewBox="0 0 320 64" preserveAspectRatio="xMidYMid meet">
+        <path d="M26.9 22.0 L29.7 22.8 L32.9 23.8 L36.6 25.1 L40.7 26.6 L45.2 28.3 L50.1 30.0 L55.2 31.7 L60.6 33.4 L66.2 35.1 L71.9 36.5 L77.8 37.8 L83.8 38.8 L89.8 39.5 L95.9 39.8 L101.9 39.8 L108.0 39.1 L114.4 37.9 L121.0 36.2 L127.8 34.1 L134.8 31.7 L142.0 29.2 L149.2 26.5 L156.5 23.8 L163.8 21.2 L171.0 18.7 L178.3 16.5 L185.4 14.7 L192.4 13.3 L199.3 12.5 L205.9 12.3 L212.6 12.7 L219.5 13.8 L226.5 15.3 L233.7 17.3 L240.8 19.6 L247.9 22.2 L254.9 25.0 L261.7 27.8 L268.2 30.7 L274.4 33.6 L280.1 36.3 L285.4 38.7 L290.2 40.9 L294.3 42.7 L297.7 44.0" style="stroke-width:1.7;opacity:1"/>
+        <path d="M26.9 22.2 L29.7 23.3 L32.9 24.6 L36.6 26.2 L40.7 28.0 L45.2 29.9 L50.1 31.9 L55.2 33.8 L60.6 35.7 L66.2 37.5 L71.9 39.2 L77.8 40.6 L83.8 41.7 L89.8 42.5 L95.9 42.8 L101.9 42.8 L108.0 42.1 L114.4 40.8 L121.0 39.1 L127.8 36.9 L134.8 34.4 L142.0 31.6 L149.2 28.8 L156.5 25.9 L163.8 23.0 L171.0 20.3 L178.3 17.9 L185.4 15.8 L192.4 14.1 L199.3 13.0 L205.9 12.5 L212.6 13.0 L219.5 14.0 L226.5 15.6 L233.7 17.5 L240.8 19.9 L247.9 22.4 L254.9 25.2 L261.7 28.1 L268.2 31.0 L274.4 33.8 L280.1 36.5 L285.4 39.0 L290.2 41.1 L294.3 42.9 L297.7 44.2" style="stroke-width:1.2;opacity:0.66"/>
+        <path d="M26.9 22.5 L29.7 23.8 L32.9 25.5 L36.6 27.3 L40.7 29.4 L45.2 31.5 L50.1 33.7 L55.2 35.9 L60.6 38.0 L66.2 40.0 L71.9 41.8 L77.8 43.3 L83.8 44.5 L89.8 45.4 L95.9 45.8 L101.9 45.8 L108.0 45.1 L114.4 43.8 L121.0 41.9 L127.8 39.6 L134.8 37.0 L142.0 34.1 L149.2 31.1 L156.5 28.0 L163.8 24.9 L171.0 21.9 L178.3 19.2 L185.4 16.9 L192.4 14.9 L199.3 13.5 L205.9 12.7 L212.6 13.2 L219.5 14.2 L226.5 15.8 L233.7 17.8 L240.8 20.1 L247.9 22.7 L254.9 25.5 L261.7 28.3 L268.2 31.2 L274.4 34.1 L280.1 36.7 L285.4 39.2 L290.2 41.4 L294.3 43.2 L297.7 44.5" style="stroke-width:1.1;opacity:0.5"/>
+        <path d="M26.9 22.7 L29.7 24.3 L32.9 26.3 L36.6 28.4 L40.7 30.7 L45.2 33.1 L50.1 35.6 L55.2 38.0 L60.6 40.3 L66.2 42.5 L71.9 44.4 L77.8 46.1 L83.8 47.4 L89.8 48.3 L95.9 48.8 L101.9 48.8 L108.0 48.1 L114.4 46.7 L121.0 44.8 L127.8 42.4 L134.8 39.6 L142.0 36.6 L149.2 33.4 L156.5 30.0 L163.8 26.7 L171.0 23.6 L178.3 20.6 L185.4 18.0 L192.4 15.7 L199.3 14.0 L205.9 13.0 L212.6 13.4 L219.5 14.5 L226.5 16.0 L233.7 18.0 L240.8 20.3 L247.9 22.9 L254.9 25.7 L261.7 28.6 L268.2 31.5 L274.4 34.3 L280.1 37.0 L285.4 39.5 L290.2 41.6 L294.3 43.4 L297.7 44.7" style="stroke-width:1;opacity:0.38"/>
+        <path d="M26.9 23.0 L29.7 24.9 L32.9 27.1 L36.6 29.5 L40.7 32.1 L45.2 34.8 L50.1 37.4 L55.2 40.1 L60.6 42.6 L66.2 44.9 L71.9 47.0 L77.8 48.8 L83.8 50.3 L89.8 51.3 L95.9 51.8 L101.9 51.8 L108.0 51.0 L114.4 49.7 L121.0 47.7 L127.8 45.2 L134.8 42.3 L142.0 39.1 L149.2 35.6 L156.5 32.1 L163.8 28.6 L171.0 25.2 L178.3 22.0 L185.4 19.1 L192.4 16.6 L199.3 14.6 L205.9 13.2 L212.6 13.7 L219.5 14.7 L226.5 16.3 L233.7 18.3 L240.8 20.6 L247.9 23.2 L254.9 25.9 L261.7 28.8 L268.2 31.7 L274.4 34.5 L280.1 37.2 L285.4 39.7 L290.2 41.9 L294.3 43.6 L297.7 45.0" style="stroke-width:1;opacity:0.28"/>
+        <path d="M26.9 23.2 L29.7 25.4 L32.9 27.9 L36.6 30.6 L40.7 33.5 L45.2 36.4 L50.1 39.3 L55.2 42.2 L60.6 44.9 L66.2 47.4 L71.9 49.7 L77.8 51.6 L83.8 53.1 L89.8 54.2 L95.9 54.8 L101.9 54.8 L108.0 54.0 L114.4 52.6 L121.0 50.5 L127.8 47.9 L134.8 44.9 L142.0 41.5 L149.2 37.9 L156.5 34.2 L163.8 30.5 L171.0 26.8 L178.3 23.3 L185.4 20.1 L192.4 17.4 L199.3 15.1 L205.9 13.5 L212.6 13.9 L219.5 15.0 L226.5 16.5 L233.7 18.5 L240.8 20.8 L247.9 23.4 L254.9 26.2 L261.7 29.0 L268.2 31.9 L274.4 34.8 L280.1 37.5 L285.4 39.9 L290.2 42.1 L294.3 43.9 L297.7 45.2" style="stroke-width:0.9;opacity:0.2"/>
+      </svg>
+    </div>
+    <div class="ftag">Engineered end to end · San Francisco / Bay Area</div>
+    <div class="socials">
+      <a href="https://www.instagram.com/hrmonik" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.mixcloud.com/hrmonik/" target="_blank" rel="noopener">Mixcloud</a>
+      <a href="https://soundcloud.com/hrmonik" target="_blank" rel="noopener">SoundCloud</a>
+      <a href="https://open.spotify.com/user/1225329394" target="_blank" rel="noopener">Spotify</a>
+      <a href="https://www.youtube.com/channel/UC9eyKrUYS9GDKyv9mnXYZxQ" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://vimeo.com/user33064217" target="_blank" rel="noopener">Vimeo</a>
+      <a href="https://www.facebook.com/100003285302795" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div class="fmail">music@hrmonik.com</div>
+    <div class="fnote">Preview mockup (&ldquo;wow&rdquo; variant) of a proposed hrmonik.com redesign. Not published. Placeholder imagery and TODO markers indicate where real assets (portfolio, photos, testimonials, remaining rates) are needed before launch.</div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   HRMONIK — LIVE LOGO ENGINE
+   Recreates the real hrmonik logo-white.png mark (a stack of thin
+   waveform lines that bundle at the top-left start, fan apart through
+   a broad trough, converge into a tall narrow peak, then bundle down
+   to the lower-right end) as inline SVG — and animates the lines so
+   they flow, ripple and breathe like a live audio waveform.
+   Static fallback paths are already in the markup, so the mark shows
+   even if this script never runs. Respects prefers-reduced-motion.
+   ============================================================ */
+(function(){
+  var REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Lead(top) line normalized anchors (x,y in 0..1, y down). Fan goes DOWN.
+  var ANCHORS = [
+    [0.065, 0.30],   // start  (top-left, bundled)
+    [0.310, 0.655],  // trough (lines fan widest)
+    [0.650, 0.105],  // peak   (tall narrow crest, bundled)
+    [0.950, 0.74]    // end    (bundled, lower-right)
+  ];
+  function cr(p0,p1,p2,p3,s){
+    var s2=s*s, s3=s2*s;
+    return [
+      0.5*((2*p1[0])+(-p0[0]+p2[0])*s+(2*p0[0]-5*p1[0]+4*p2[0]-p3[0])*s2+(-p0[0]+3*p1[0]-3*p2[0]+p3[0])*s3),
+      0.5*((2*p1[1])+(-p0[1]+p2[1])*s+(2*p0[1]-5*p1[1]+4*p2[1]-p3[1])*s2+(-p0[1]+3*p1[1]-3*p2[1]+p3[1])*s3)
+    ];
+  }
+  function leadPoints(S){
+    var A=ANCHORS, ctrl=[A[0],A[0],A[1],A[2],A[3],A[3]], pts=[], segs=3;
+    for(var seg=0; seg<segs; seg++){
+      var p0=ctrl[seg],p1=ctrl[seg+1],p2=ctrl[seg+2],p3=ctrl[seg+3], last=(seg===segs-1);
+      var steps=Math.round(S/segs);
+      for(var i=0;i<steps+(last?1:0);i++){
+        var s=i/steps, q=cr(p0,p1,p2,p3,s);
+        pts.push({x:q[0], y:q[1], t:(seg+s)/segs});
+      }
+    }
+    return pts;
+  }
+  function fanEnv(t){ var hump=Math.max(0, Math.sin(Math.PI*1.5*t)); return 0.08 + 0.92*hump; }
+  function rippleW(t){ return 0.30 + 0.70*Math.sin(Math.PI*Math.min(1,t*1.05)); }
+
+  function parseVB(svg){
+    var vb=(svg.getAttribute('viewBox')||'0 0 100 100').split(/\s+/).map(parseFloat);
+    return {W:vb[2], H:vb[3]};
+  }
+
+  // Mount a living logo on an <svg> whose <path> children are the lines.
+  function mountLogo(svg, opts){
+    if(!svg) return null;
+    var paths = [].slice.call(svg.querySelectorAll('path'));
+    var N = paths.length; if(!N) return null;
+    var dim = parseVB(svg);
+    var pad = opts.pad, spread = opts.spread, amp = opts.amp, spd = opts.spd||1;
+    var base = leadPoints(opts.samples||150);
+    var innerW = dim.W - 2*pad, innerH = dim.H - 2*pad;
+    var react = 0, reactTarget = 0;
+
+    function build(i, time){
+      var d='';
+      for(var k=0;k<base.length;k++){
+        var p=base[k];
+        var env=fanEnv(p.t);
+        var off = i*spread*env;
+        var breath = 1 + 0.06*Math.sin(time*0.7 + i*0.4);
+        var rip = amp*rippleW(p.t)*(
+            Math.sin(p.x*Math.PI*2*2.0 + time*1.6*spd + i*0.6 + p.t*1.5)
+          + 0.5*Math.sin(p.x*Math.PI*2*4.3 - time*2.1*spd + i*0.9)
+        );
+        var nx = p.x, ny = (p.y+off)*breath + rip + react*0.05*(0.4+p.t*0.6);
+        d += (k===0?'M':'L') + (pad+nx*innerW).toFixed(2) + ' ' + (pad+ny*innerH).toFixed(2) + ' ';
+      }
+      paths[i].setAttribute('d', d);
+    }
+    function frame(ts){
+      if(!running) return;
+      var time = ts/1000;
+      react += (reactTarget - react)*0.06;
+      for(var i=0;i<N;i++) build(i, time);
+      requestAnimationFrame(frame);
+    }
+    var running = true;
+    if(REDUCE){ for(var i=0;i<N;i++) build(i,0); return {setReact:function(){}}; }
+    requestAnimationFrame(frame);
+    // pause offscreen for perf
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(e.isIntersecting){ if(!running){ running=true; requestAnimationFrame(frame); } }
+          else running=false;
+        });
+      },{threshold:0.01}).observe(svg);
+    }
+    return { setReact:function(v){ reactTarget = Math.max(-1,Math.min(1,v)); } };
+  }
+
+  // --- mount the three marks ---
+  var hero = mountLogo(document.getElementById('heroLogo'),   {pad:14, spread:0.060, amp:0.022, spd:1.0, samples:160});
+            mountLogo(document.getElementById('navLogo'),    {pad:14, spread:0.060, amp:0.014, spd:1.10, samples:120});
+            mountLogo(document.getElementById('footerLogo'), {pad:7,  spread:0.060, amp:0.013, spd:0.9, samples:120});
+
+  // hero mouse reactivity (subtle vertical lift/tilt)
+  var heroSec = document.getElementById('home');
+  if(hero && heroSec && !REDUCE){
+    heroSec.addEventListener('mousemove', function(e){
+      var r=heroSec.getBoundingClientRect();
+      hero.setReact(((e.clientY-r.top)/r.height - 0.5)*2);
+    });
+    heroSec.addEventListener('mouseleave', function(){ hero.setReact(0); });
+  }
+  window.HARMONIK = { mountLogo:mountLogo, leadPoints:leadPoints, fanEnv:fanEnv };
+})();
+
+/* ============================================================
+   HERO AMBIENT BACKDROP — faint full-width sine field behind the
+   live logo, for depth. Subtle (low opacity via CSS).
+   ============================================================ */
+(function(){
+  var canvas = document.getElementById('waveCanvas');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var w=0,h=0,dpr=Math.min(window.devicePixelRatio||1,2), t=0, running=true;
+  function resize(){
+    var rect=canvas.getBoundingClientRect(); w=rect.width; h=rect.height;
+    canvas.width=Math.floor(w*dpr); canvas.height=Math.floor(h*dpr); ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  window.addEventListener('resize', resize); resize();
+  var layers=[
+    {amp:0.13, freq:1.4, spd:0.6,  op:0.55, ph:0},
+    {amp:0.09, freq:2.3, spd:-0.9, op:0.32, ph:1.7},
+    {amp:0.06, freq:3.6, spd:1.3,  op:0.20, ph:3.1}
+  ];
+  function drawWave(L,time){
+    var mid=h*0.5, amp=h*L.amp*(0.78+0.22*Math.sin(time*0.5+L.ph));
+    ctx.beginPath(); var step=Math.max(2,w/240);
+    for(var x=0;x<=w;x+=step){
+      var nx=x/w, y=mid+Math.sin(nx*Math.PI*2*L.freq+time*L.spd+L.ph)*amp
+        +Math.sin(nx*Math.PI*2*(L.freq*0.5)-time*L.spd*0.6)*amp*0.35;
+      if(x===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+    }
+    ctx.strokeStyle='rgba(255,255,255,'+L.op+')'; ctx.lineWidth=1.1; ctx.lineCap='round';
+    ctx.shadowColor='rgba(255,255,255,0.18)'; ctx.shadowBlur=5; ctx.stroke(); ctx.shadowBlur=0;
+  }
+  function frame(){ if(!running) return; ctx.clearRect(0,0,w,h);
+    for(var i=0;i<layers.length;i++) drawWave(layers[i],t); t+=0.016; requestAnimationFrame(frame); }
+  if(reduce){ ctx.clearRect(0,0,w,h); drawWave(layers[0],0); drawWave(layers[1],0); }
+  else requestAnimationFrame(frame);
+  var heroSec=document.getElementById('home');
+  if('IntersectionObserver' in window && !reduce && heroSec){
+    new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){ if(!running){running=true;requestAnimationFrame(frame);} } else running=false;
+    });},{threshold:0.01}).observe(heroSec);
+  }
+})();
+
+/* ============================================================
+   SCROLL REVEALS — fade/slide sections in (bolder travel via CSS)
+   ============================================================ */
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){ els.forEach(function(el){el.classList.add('in');}); return; }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  },{threshold:0, rootMargin:'0px 0px -9% 0px'});
+  els.forEach(function(el){ io.observe(el); });
+  setTimeout(function(){ els.forEach(function(el){ if(!el.classList.contains('in')) el.classList.add('in'); }); }, 4000);
+})();
+
+/* ============================================================
+   HEADER condense on scroll + close mobile menu on nav click
+   ============================================================ */
+(function(){
+  var header=document.getElementById('siteHeader');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY>24) header.classList.add('scrolled'); else header.classList.remove('scrolled');
+  },{passive:true});
+  document.querySelectorAll('.navlinks a').forEach(function(a){
+    a.addEventListener('click', function(){ document.querySelector('.navlinks').classList.remove('open'); });
+  });
+})();
+
+/* ============================================================
+   PAGE-WIDE MOTION (wow v3) — bolder, still elegant. All additive;
+   page renders fully without it. Disabled under reduced-motion.
+   ============================================================ */
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- 1. Living accent dividers: 3 stacked flowing waveform lines.
+     Amplitude eases in on reveal ("draws in"), then keeps flowing. ---- */
+  (function(){
+    if(reduce) return;
+    var svgs=[].slice.call(document.querySelectorAll('.accent-line'));
+    if(!svgs.length) return;
+    var W=440, MID=11, N=80;
+    var items=svgs.map(function(s){
+      return { lines:[].slice.call(s.querySelectorAll('path')), vis:false, amp:0, seed:Math.random()*6.28 };
+    });
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){
+        var idx=svgs.indexOf(e.target); if(idx>-1) items[idx].vis=e.isIntersecting;
+      });},{threshold:0});
+      svgs.forEach(function(s){ io.observe(s); });
+    } else items.forEach(function(it){ it.vis=true; });
+
+    function build(it,li,time){
+      var d='M0 '+MID, phase=li*0.9;
+      for(var i=1;i<=N;i++){
+        var nx=i/N, x=W*nx;
+        var y=MID + li*1.4
+          + Math.sin(nx*Math.PI*2*2 + time*1.3 + it.seed + phase)*it.amp
+          + Math.sin(nx*Math.PI*2*5 - time*1.9 + it.seed)*it.amp*0.42;
+        d += ' L'+x.toFixed(1)+' '+y.toFixed(2);
+      }
+      it.lines[li].setAttribute('d', d);
+    }
+    function loop(ts){
+      var time=ts/1000;
+      for(var i=0;i<items.length;i++){
+        var it=items[i], target= it.vis ? 5.6 : 0;
+        it.amp += (target-it.amp)*0.05;
+        if(it.vis || it.amp>0.05) for(var li=0; li<it.lines.length; li++) build(it,li,time);
+      }
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+  })();
+
+  /* ---- 2. Count-up rates ($150, $350, …) on scroll-in ---- */
+  (function(){
+    var prices=[].slice.call(document.querySelectorAll('.price')).filter(function(el){ return /\d/.test(el.textContent); });
+    if(!prices.length) return;
+    function animate(el){
+      var orig=el.textContent; if(reduce) return;
+      var parts=orig.split(/(\d+)/), nums=[];
+      parts.forEach(function(p,i){ if(/^\d+$/.test(p)) nums.push({i:i,target:parseInt(p,10)}); });
+      if(!nums.length) return;
+      var dur=1050, start=null;
+      function step(ts){ if(!start) start=ts;
+        var k=Math.min(1,(ts-start)/dur), e=1-Math.pow(1-k,3);
+        nums.forEach(function(n){ parts[n.i]=String(Math.round(n.target*e)); });
+        el.textContent=parts.join('');
+        if(k<1) requestAnimationFrame(step); else el.textContent=orig;
+      }
+      requestAnimationFrame(step);
+    }
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){
+        if(e.isIntersecting){ animate(e.target); io.unobserve(e.target); }
+      });},{threshold:0.5});
+      prices.forEach(function(el){ io.observe(el); });
+    }
+  })();
+
+  /* ---- 3. Trusted strip: seamless marquee + sequential glow ---- */
+  (function(){
+    var strip=document.querySelector('.truststrip');
+    if(!strip || reduce) return;
+    var track=document.createElement('div'); track.className='trust-track';
+    while(strip.firstChild){ track.appendChild(strip.firstChild); }
+    var clone=track.cloneNode(true); clone.setAttribute('aria-hidden','true');
+    strip.appendChild(track); strip.appendChild(clone); strip.classList.add('marquee');
+  })();
+
+  /* ---- 4. Bolder scroll parallax: headings/photo/notes/cards drift ---- */
+  (function(){
+    if(reduce) return;
+    var els=[].slice.call(document.querySelectorAll('.sec-head, .about .photo, .credit-note, .bookgrid > .reveal, .hero-logo-wrap'));
+    if(!els.length) return;
+    var ticking=false;
+    function update(){
+      ticking=false; var vh=window.innerHeight, vc=vh/2;
+      for(var i=0;i<els.length;i++){
+        var el=els[i];
+        if(el.classList.contains('reveal') && !el.classList.contains('in')) continue;
+        var r=el.getBoundingClientRect(), off=((r.top+r.height/2)-vc)/vh;
+        var p=Math.max(-1,Math.min(1,off))*-22;
+        el.style.transform='translateY('+p.toFixed(1)+'px)';
+      }
+    }
+    window.addEventListener('scroll', function(){ if(!ticking){ requestAnimationFrame(update); ticking=true; } },{passive:true});
+    window.addEventListener('resize', update); update();
+  })();
+})();
+
+</script>
+
+</body>
+</html>
