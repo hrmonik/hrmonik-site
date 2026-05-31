@@ -622,13 +622,13 @@
       <p style="margin-top:18px"><a href="https://buy.stripe.com/test_cNi28s4lidNz8y055BcjS00" class="btn" target="_blank" rel="noopener">Reserve your date — pay $250 deposit →</a></p>
       <p style="margin-top:24px"><a href="#book" class="btn">Book a call →</a></p>
     </div>
-    <form class="reveal d1" onsubmit="event.preventDefault(); this.querySelector('.formnote').textContent='✓ Thanks! For the fastest reply, please also email music@hrmonik.com directly.';">
+    <form class="reveal d1" id="quoteForm" onsubmit="return sendQuote(event)">
       <label>Name</label>
-      <input type="text" placeholder="Your name" required />
+      <input id="f_name" type="text" placeholder="Your name" required />
       <label>Email</label>
-      <input type="email" placeholder="you@email.com" required />
+      <input id="f_email" type="email" placeholder="you@email.com" required />
       <label>Service</label>
-      <select>
+      <select id="f_service">
         <option>Recording</option>
         <option>Sound Design</option>
         <option selected>Post-Production</option>
@@ -637,12 +637,25 @@
         <option>Not sure yet</option>
       </select>
       <label>Date needed / event date</label>
-      <input type="date" />
+      <input id="f_date" type="date" />
       <label>Project details</label>
-      <textarea placeholder="A couple of lines about what you need..."></textarea>
+      <textarea id="f_details" placeholder="A couple of lines about what you need..."></textarea>
       <button type="submit" class="btn">Send &amp; get my quote</button>
       <div class="formnote">Short by design — name, email, service &amp; date is enough to start.</div>
     </form>
+    <script>
+      function sendQuote(e){
+        e.preventDefault();
+        var g=function(id){var el=document.getElementById(id);return el?el.value.trim():'';};
+        var name=g('f_name'), email=g('f_email'), service=g('f_service'), date=g('f_date'), details=g('f_details');
+        var subject='Quote request — '+service+(name?(' — '+name):'');
+        var body='Name: '+name+'\nEmail: '+email+'\nService: '+service+'\nDate: '+(date||'(not specified)')+'\n\nProject details:\n'+(details||'(none)');
+        var note=document.querySelector('#quoteForm .formnote');
+        if(note) note.textContent='✓ Opening your email — just hit send. (Or email music@hrmonik.com directly.)';
+        window.location.href='mailto:music@hrmonik.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+        return false;
+      }
+    </script>
   </div>
 </section>
 
