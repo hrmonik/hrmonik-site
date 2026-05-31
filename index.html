@@ -30,9 +30,12 @@
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
   .ls{text-transform:uppercase;letter-spacing:3px;font-weight:300}
   /* ---------- SCROLL REVEAL ---------- */
-  .reveal{transition:opacity 1s var(--ease),transform 1.05s var(--ease)}
-  .js .reveal{opacity:0;transform:translateY(40px) scale(.985)}
-  .reveal.in{opacity:1;transform:none}
+  /* Content is ALWAYS visible by default. Scroll/entrance animation is progressive
+     enhancement only and can never leave an element stuck invisible (e.g. inside an iframe
+     where IntersectionObserver may not fire). */
+  .reveal{opacity:1!important;transform:none!important;transition:opacity 1s var(--ease),transform 1.05s var(--ease)}
+  .js .reveal{opacity:1!important;transform:none!important}
+  .reveal.in{opacity:1!important;transform:none!important}
   .reveal.d1{transition-delay:.09s}.reveal.d2{transition-delay:.18s}
   .reveal.d3{transition-delay:.27s}.reveal.d4{transition-delay:.36s}
   .reveal.d5{transition-delay:.45s}.reveal.d6{transition-delay:.54s}
@@ -830,13 +833,15 @@
    SCROLL REVEALS — fade/slide sections in (bolder travel via CSS)
    ============================================================ */
 (function(){
-  var els=document.querySelectorAll('.reveal');
-  if(!('IntersectionObserver' in window)){ els.forEach(function(el){el.classList.add('in');}); return; }
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
-  },{threshold:0, rootMargin:'0px 0px -9% 0px'});
-  els.forEach(function(el){ io.observe(el); });
-  setTimeout(function(){ els.forEach(function(el){ if(!el.classList.contains('in')) el.classList.add('in'); }); }, 4000);
+  // Belt-and-suspenders: reveal ALL .reveal elements immediately, so even if the
+  // IntersectionObserver never fires (e.g. inside a Squarespace iframe) every element is
+  // shown on load with no scrolling required. CSS already keeps content visible by default.
+  function revealAll(){
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+  revealAll();
+  if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', revealAll); }
+  window.addEventListener('load', revealAll);
 })();
 
 /* ============================================================
