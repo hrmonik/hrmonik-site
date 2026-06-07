@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Song Key Transposer — Transpose Keys & Chords Online | Hrmonik</title>
+<meta name="description" content="Free song key transposer. Shift any key or chord progression up or down by semitones, see the new key instantly, plus the Camelot code and relative major/minor for DJ mixing and capo work.">
+<link rel="canonical" href="https://www.hrmonik.com/tools/song-key-transposer.html">
+<meta property="og:title" content="Song Key Transposer | Hrmonik">
+<meta property="og:description" content="Shift any key or chord progression by semitones — with Camelot codes and relative keys.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Song Key Transposer","applicationCategory":"MultimediaApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Hrmonik","url":"https://www.hrmonik.com"}}
+</script>
+<style>
+:root{--bg:#000;--bg2:#0a0a0a;--line:#1c1c1c;--line2:#2a2a2a;--text:#fff;--muted:#9a9a9a;--dim:#5e5e5e;--accent:#e7b24c;--maxw:880px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+.ls{text-transform:uppercase;letter-spacing:3px;font-weight:300}
+header{border-bottom:1px solid var(--line);padding:22px 0}
+header .wrap{display:flex;justify-content:space-between;align-items:center}
+header a.logo{font-size:15px;letter-spacing:5px;text-transform:uppercase}
+header a.back{font-size:11px;color:var(--muted)}
+header a.back:hover{color:var(--accent)}
+h1{font-size:26px;font-weight:200;letter-spacing:2px;margin:54px 0 10px}
+.sub{color:var(--muted);font-size:14px;margin-bottom:40px;max-width:620px}
+.tool{background:var(--bg2);border:1px solid var(--line);padding:34px;margin-bottom:50px}
+.inputs{display:flex;gap:26px;flex-wrap:wrap;align-items:flex-end}
+label{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+select,input[type=number]{background:#000;border:1px solid var(--line2);color:var(--text);font-family:inherit;font-size:18px;font-weight:200;padding:10px 14px;outline:none;height:50px}
+select:focus,input:focus{border-color:var(--accent)}
+.result{margin-top:30px;border-top:1px solid var(--line2);padding-top:24px}
+.bigkey{font-size:42px;font-weight:200;color:var(--accent);letter-spacing:2px}
+.meta{color:var(--muted);font-size:13px;margin-top:6px}
+textarea{background:#000;border:1px solid var(--line2);color:var(--text);font-family:inherit;font-size:15px;padding:12px;width:100%;min-height:70px;outline:none;margin-top:6px}
+textarea:focus{border-color:var(--accent)}
+.chordsout{font-size:18px;color:var(--accent);margin-top:14px;min-height:26px;letter-spacing:1px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:8px}
+section.txt{margin-bottom:46px}
+section.txt h2{font-size:15px;letter-spacing:3px;text-transform:uppercase;font-weight:300;color:var(--accent);margin-bottom:14px}
+section.txt p,section.txt li{color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line);padding:30px 0;margin-top:70px}
+footer .wrap{display:flex;justify-content:space-between;font-size:11px;color:var(--dim)}
+footer a:hover{color:var(--accent)}
+@media(max-width:640px){.split{grid-template-columns:1fr}.tool{padding:20px}h1{font-size:21px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="https://www.hrmonik.com/">Hrmonik</a>
+<a class="back ls" href="/tools/">← All Tools</a>
+</div></header>
+<main class="wrap">
+<h1>Song Key Transposer</h1>
+<p class="sub">Pick a key, shift it by semitones, and get the new key with its Camelot code and relative major/minor — or paste a whole chord progression and transpose every chord at once.</p>
+
+<div class="tool">
+<div class="inputs">
+<div><label for="key">Original key</label><select id="key"></select></div>
+<div><label for="mode">Mode</label><select id="mode"><option value="maj">Major</option><option value="min">Minor</option></select></div>
+<div><label for="semi">Semitones (±)</label><input type="number" id="semi" value="2" min="-11" max="11" step="1"></div>
+</div>
+<div class="result">
+<div class="split">
+<div>
+<label>New key</label>
+<div class="bigkey" id="newkey">D major</div>
+<div class="meta" id="meta"></div>
+</div>
+<div>
+<label for="prog">Chord progression (optional)</label>
+<textarea id="prog" placeholder="e.g.  C  Am  F  G7  /  Dm7  G  Cmaj7" spellcheck="false"></textarea>
+<div class="chordsout" id="progout"></div>
+</div>
+</div>
+</div>
+</div>
+
+<section class="txt">
+<h2>When you'd use this</h2>
+<p>Moving a song to fit a singer's range, working out capo positions, matching the key of a sample to your session, or planning harmonic DJ transitions — the Camelot code shown under the result tells you instantly which tracks mix cleanly together (adjacent numbers, same letter).</p>
+</section>
+<section class="txt">
+<h2>FAQ</h2>
+<p><strong style="color:#fff;font-weight:400">Transposing up or down — does it matter?</strong><br>+2 and −10 semitones land on the same key name but a different octave feel. For vocals, choose the direction that keeps the melody inside the singer's comfortable range.</p>
+<p style="margin-top:12px"><strong style="color:#fff;font-weight:400">What's a relative minor?</strong><br>The minor key that shares every note with a major key (A minor for C major). Same chords, different home base — which is why the tool shows it alongside the result.</p>
+</section>
+</main>
+<footer><div class="wrap">
+<span>© Hrmonik — www.hrmonik.com</span>
+<a href="/tools/">More free music tools →</a>
+</div></footer>
+<script>
+const SHARP=["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+const FLAT =["C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B"];
+const CAMELOT_MAJ={0:"8B",1:"3B",2:"10B",3:"5B",4:"12B",5:"7B",6:"2B",7:"9B",8:"4B",9:"11B",10:"6B",11:"1B"};
+const CAMELOT_MIN={0:"5A",1:"12A",2:"7A",3:"2A",4:"9A",5:"4A",6:"11A",7:"6A",8:"1A",9:"8A",10:"3A",11:"10A"};
+const FLAT_KEYS_MAJ=new Set([5,10,3,8,1,6]);   // F,Bb,Eb,Ab,Db,Gb prefer flats
+const FLAT_KEYS_MIN=new Set([2,7,0,5,10,3]);    // d,g,c,f,bb,eb minor prefer flats
+const keySel=document.getElementById("key");
+SHARP.forEach((n,i)=>{const o=document.createElement("option");o.value=i;o.textContent=n+(FLAT[i]!==n?" / "+FLAT[i]:"");keySel.appendChild(o);});
+function nameFor(pc,minor){const flat=minor?FLAT_KEYS_MIN.has(pc):FLAT_KEYS_MAJ.has(pc);return (flat?FLAT:SHARP)[pc];}
+function mod(n,m){return((n%m)+m)%m;}
+const NOTE_RE=/([A-G])(b|#)?/g;
+function transposeText(txt,semi){
+  return txt.replace(NOTE_RE,(m,letter,acc)=>{
+    const base={C:0,D:2,E:4,F:5,G:7,A:9,B:11}[letter];
+    let pc=base+(acc==="#"?1:acc==="b"?-1:0);
+    pc=mod(pc+semi,12);
+    return SHARP[pc];
+  });
+}
+function calc(){
+  const pc=parseInt(keySel.value,10);
+  const minor=document.getElementById("mode").value==="min";
+  const semi=parseInt(document.getElementById("semi").value,10)||0;
+  const npc=mod(pc+semi,12);
+  const name=nameFor(npc,minor);
+  document.getElementById("newkey").textContent=name+(minor?" minor":" major");
+  const cam=(minor?CAMELOT_MIN:CAMELOT_MAJ)[npc];
+  const relPc=minor?mod(npc+3,12):mod(npc+9,12);
+  const rel=minor?nameFor(relPc,false)+" major":nameFor(relPc,true)+" minor";
+  document.getElementById("meta").textContent=`Camelot ${cam} · relative: ${rel} · shift: ${semi>0?"+":""}${semi} st`;
+  const prog=document.getElementById("prog").value;
+  document.getElementById("progout").textContent=prog.trim()?transposeText(prog,semi):"";
+}
+for(const id of["key","mode","semi","prog"])document.getElementById(id).addEventListener("input",calc);
+keySel.value=0;calc();
+</script>
+</body>
+</html>

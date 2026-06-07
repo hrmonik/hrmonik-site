@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delay & Reverb Time Calculator — BPM to Milliseconds | Hrmonik</title>
+<meta name="description" content="Free delay and reverb time calculator. Convert any BPM to delay times in milliseconds for every note value — quarter, eighth, dotted, triplet — plus reverb pre-delay and decay suggestions.">
+<link rel="canonical" href="https://www.hrmonik.com/tools/delay-time-calculator.html">
+<meta property="og:title" content="Delay & Reverb Time Calculator — BPM to ms | Hrmonik">
+<meta property="og:description" content="Convert BPM to delay times in milliseconds for every note value, with reverb pre-delay and decay suggestions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Delay & Reverb Time Calculator","applicationCategory":"MultimediaApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Hrmonik","url":"https://www.hrmonik.com"}}
+</script>
+<style>
+:root{--bg:#000;--bg2:#0a0a0a;--line:#1c1c1c;--line2:#2a2a2a;--text:#fff;--muted:#9a9a9a;--dim:#5e5e5e;--accent:#e7b24c;--accent-bright:#f3c869;--maxw:880px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+.ls{text-transform:uppercase;letter-spacing:3px;font-weight:300}
+header{border-bottom:1px solid var(--line);padding:22px 0}
+header .wrap{display:flex;justify-content:space-between;align-items:center}
+header a.logo{font-size:15px;letter-spacing:5px;text-transform:uppercase}
+header a.back{font-size:11px;color:var(--muted)}
+header a.back:hover{color:var(--accent)}
+h1{font-size:26px;font-weight:200;letter-spacing:2px;margin:54px 0 10px}
+.sub{color:var(--muted);font-size:14px;margin-bottom:40px;max-width:620px}
+.tool{background:var(--bg2);border:1px solid var(--line);padding:34px;margin-bottom:50px}
+label{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+input[type=number]{background:#000;border:1px solid var(--line2);color:var(--text);font-family:inherit;font-size:28px;font-weight:200;padding:12px 16px;width:180px;outline:none}
+input[type=number]:focus{border-color:var(--accent)}
+table{width:100%;border-collapse:collapse;margin-top:30px;font-size:14px}
+th{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);text-align:left;padding:10px 8px;border-bottom:1px solid var(--line2)}
+td{padding:10px 8px;border-bottom:1px solid var(--line);color:var(--text)}
+td.v{color:var(--accent);font-weight:400}
+.note{color:var(--dim);font-size:12px;margin-top:18px}
+section.txt{margin-bottom:46px}
+section.txt h2{font-size:15px;letter-spacing:3px;text-transform:uppercase;font-weight:300;color:var(--accent);margin-bottom:14px}
+section.txt p,section.txt li{color:var(--muted);font-size:14px}
+section.txt ol{padding-left:20px}
+footer{border-top:1px solid var(--line);padding:30px 0;margin-top:70px}
+footer .wrap{display:flex;justify-content:space-between;font-size:11px;color:var(--dim)}
+footer a:hover{color:var(--accent)}
+@media(max-width:600px){.tool{padding:22px}h1{font-size:21px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="https://www.hrmonik.com/">Hrmonik</a>
+<a class="back ls" href="/tools/">← All Tools</a>
+</div></header>
+<main class="wrap">
+<h1>Delay &amp; Reverb Time Calculator</h1>
+<p class="sub">Enter your track's BPM and get every delay time in milliseconds — straight, dotted and triplet note values — plus tempo-synced reverb pre-delay and decay starting points.</p>
+
+<div class="tool">
+<label for="bpm">Tempo (BPM)</label>
+<input type="number" id="bpm" value="120" min="20" max="999" step="0.1" inputmode="decimal">
+<table id="out">
+<thead><tr><th>Note value</th><th>Straight (ms)</th><th>Dotted (ms)</th><th>Triplet (ms)</th><th>Hz (LFO)</th></tr></thead>
+<tbody></tbody>
+</table>
+<table>
+<thead><tr><th colspan="2">Reverb starting points (tempo-synced)</th></tr></thead>
+<tbody>
+<tr><td>Tight room — pre-delay / decay</td><td class="v" id="rvSmall">—</td></tr>
+<tr><td>Medium room/plate — pre-delay / decay</td><td class="v" id="rvMed">—</td></tr>
+<tr><td>Large hall — pre-delay / decay</td><td class="v" id="rvBig">—</td></tr>
+</tbody>
+</table>
+<p class="note">Reverb rule of thumb: pre-delay = 1/64 note; total decay lands on a bar boundary so the tail breathes with the groove. Trust your ears over the math.</p>
+</div>
+
+<section class="txt">
+<h2>How to use it</h2>
+<ol>
+<li>Type the BPM of your session (or tap it from your DAW's tempo display).</li>
+<li>Read the millisecond value for the note division you want to hear — 1/4 for classic slap-back dub echoes, 1/8 dotted for the U2/Edge feel, 1/16 for tight vocal thickening.</li>
+<li>Enter the value into any delay plugin that isn't tempo-synced, or use the Hz column to set LFO rates on chorus, tremolo and auto-pan.</li>
+</ol>
+</section>
+<section class="txt">
+<h2>The formula</h2>
+<p>One beat (a quarter note) lasts 60,000 ÷ BPM milliseconds. Every other value is derived from that: halve it for an eighth, multiply by 1.5 for dotted, by 2/3 for triplet. The Hz column is simply 1000 ÷ ms — handy for rate-based modulation effects.</p>
+</section>
+<section class="txt">
+<h2>FAQ</h2>
+<p><strong style="color:#fff;font-weight:400">Why sync delay to tempo at all?</strong><br>Tempo-synced repeats sit inside the groove instead of smearing across it — the echoes reinforce the rhythm rather than fighting it. Unsynced delays are a deliberate creative choice, not a default.</p>
+<p style="margin-top:12px"><strong style="color:#fff;font-weight:400">What pre-delay should a vocal reverb have?</strong><br>Start at the 1/64-note value for the song's tempo. It keeps the dry consonants intact (clarity) while the tail still locks to the track.</p>
+</section>
+</main>
+<footer><div class="wrap">
+<span>© Hrmonik — www.hrmonik.com</span>
+<a href="/tools/">More free music tools →</a>
+</div></footer>
+<script>
+const NOTES=[["1 bar (4/4)",4],["1/2",2],["1/4 (beat)",1],["1/8",0.5],["1/16",0.25],["1/32",0.125],["1/64",0.0625]];
+function fmt(x){return x>=100?x.toFixed(1):x.toFixed(2)}
+function calc(){
+  const bpm=parseFloat(document.getElementById("bpm").value);
+  const tb=document.querySelector("#out tbody");tb.innerHTML="";
+  if(!bpm||bpm<=0)return;
+  const beat=60000/bpm;
+  for(const[n,m]of NOTES){
+    const s=beat*m;
+    tb.insertAdjacentHTML("beforeend",`<tr><td>${n}</td><td class="v">${fmt(s)}</td><td class="v">${fmt(s*1.5)}</td><td class="v">${fmt(s*2/3)}</td><td>${(1000/s).toFixed(3)}</td></tr>`);
+  }
+  const pd=beat*0.0625, bar=beat*4;
+  document.getElementById("rvSmall").textContent=`${fmt(pd/2)} ms / ${fmt(bar/2)} ms`;
+  document.getElementById("rvMed").textContent=`${fmt(pd)} ms / ${fmt(bar)} ms`;
+  document.getElementById("rvBig").textContent=`${fmt(pd*2)} ms / ${fmt(bar*2)} ms`;
+}
+document.getElementById("bpm").addEventListener("input",calc);calc();
+</script>
+</body>
+</html>

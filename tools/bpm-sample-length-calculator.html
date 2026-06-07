@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPM to Sample Length Calculator — Bars, Seconds & Samples | Hrmonik</title>
+<meta name="description" content="Free BPM to sample length calculator. Convert bars and beats at any tempo into seconds, milliseconds and exact sample counts at 44.1k, 48k or 96k — perfect for loops, sampling and time-stretching.">
+<link rel="canonical" href="https://www.hrmonik.com/tools/bpm-sample-length-calculator.html">
+<meta property="og:title" content="BPM to Sample Length Calculator | Hrmonik">
+<meta property="og:description" content="Convert bars and beats at any tempo into seconds, milliseconds and exact sample counts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"BPM to Sample Length Calculator","applicationCategory":"MultimediaApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Hrmonik","url":"https://www.hrmonik.com"}}
+</script>
+<style>
+:root{--bg:#000;--bg2:#0a0a0a;--line:#1c1c1c;--line2:#2a2a2a;--text:#fff;--muted:#9a9a9a;--dim:#5e5e5e;--accent:#e7b24c;--maxw:880px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+.ls{text-transform:uppercase;letter-spacing:3px;font-weight:300}
+header{border-bottom:1px solid var(--line);padding:22px 0}
+header .wrap{display:flex;justify-content:space-between;align-items:center}
+header a.logo{font-size:15px;letter-spacing:5px;text-transform:uppercase}
+header a.back{font-size:11px;color:var(--muted)}
+header a.back:hover{color:var(--accent)}
+h1{font-size:26px;font-weight:200;letter-spacing:2px;margin:54px 0 10px}
+.sub{color:var(--muted);font-size:14px;margin-bottom:40px;max-width:620px}
+.tool{background:var(--bg2);border:1px solid var(--line);padding:34px;margin-bottom:50px}
+.inputs{display:flex;gap:26px;flex-wrap:wrap}
+label{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+input,select{background:#000;border:1px solid var(--line2);color:var(--text);font-family:inherit;font-size:22px;font-weight:200;padding:10px 14px;width:140px;outline:none}
+select{font-size:15px;width:160px;height:50px}
+input:focus,select:focus{border-color:var(--accent)}
+table{width:100%;border-collapse:collapse;margin-top:30px;font-size:14px}
+th{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);text-align:left;padding:10px 8px;border-bottom:1px solid var(--line2)}
+td{padding:10px 8px;border-bottom:1px solid var(--line)}
+td.v{color:var(--accent);font-weight:400}
+section.txt{margin-bottom:46px}
+section.txt h2{font-size:15px;letter-spacing:3px;text-transform:uppercase;font-weight:300;color:var(--accent);margin-bottom:14px}
+section.txt p,section.txt li{color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line);padding:30px 0;margin-top:70px}
+footer .wrap{display:flex;justify-content:space-between;font-size:11px;color:var(--dim)}
+footer a:hover{color:var(--accent)}
+@media(max-width:600px){.tool{padding:20px}h1{font-size:21px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="https://www.hrmonik.com/">Hrmonik</a>
+<a class="back ls" href="/tools/">← All Tools</a>
+</div></header>
+<main class="wrap">
+<h1>BPM → Sample Length Calculator</h1>
+<p class="sub">How long is 4 bars at 92 BPM? Exactly how many samples is one beat at 48 kHz? Set the tempo, sample rate and time signature — get every loop length in seconds, milliseconds and samples.</p>
+
+<div class="tool">
+<div class="inputs">
+<div><label for="bpm">Tempo (BPM)</label><input type="number" id="bpm" value="120" min="20" max="999" step="0.1" inputmode="decimal"></div>
+<div><label for="sr">Sample rate</label><select id="sr"><option value="44100">44.1 kHz</option><option value="48000" selected>48 kHz</option><option value="88200">88.2 kHz</option><option value="96000">96 kHz</option><option value="192000">192 kHz</option></select></div>
+<div><label for="sig">Beats per bar</label><input type="number" id="sig" value="4" min="1" max="12" step="1"></div>
+</div>
+<table id="out">
+<thead><tr><th>Length</th><th>Seconds</th><th>Milliseconds</th><th>Samples</th></tr></thead>
+<tbody></tbody>
+</table>
+</div>
+
+<section class="txt">
+<h2>Why exact sample counts matter</h2>
+<p>Seamless loops need to end on an exact sample boundary — a loop that's even a few samples long or short drifts audibly after a couple of repeats. When you trim a loop by hand, type the sample count from this table into your editor instead of dragging by eye. The same numbers tell you precisely how much audio a sampler needs for one bar, or how far to nudge a clip to land on the grid.</p>
+</section>
+<section class="txt">
+<h2>The math</h2>
+<p>One beat = 60 ÷ BPM seconds. Multiply by beats-per-bar for a bar, then by the sample rate for the sample count. Fractional samples are shown rounded — when a length doesn't divide evenly, your DAW is silently rounding too, which is exactly why long loops drift at "odd" tempos.</p>
+</section>
+</main>
+<footer><div class="wrap">
+<span>© Hrmonik — www.hrmonik.com</span>
+<a href="/tools/">More free music tools →</a>
+</div></footer>
+<script>
+const ROWS=[["1 beat",1],["2 beats",2],["1 bar",null],["2 bars",null],["4 bars",null],["8 bars",null],["16 bars",null],["32 bars",null]];
+function calc(){
+  const bpm=parseFloat(document.getElementById("bpm").value);
+  const sr=parseInt(document.getElementById("sr").value,10);
+  const sig=parseInt(document.getElementById("sig").value,10)||4;
+  const tb=document.querySelector("#out tbody");tb.innerHTML="";
+  if(!bpm||bpm<=0)return;
+  const beat=60/bpm;
+  const items=[["1 beat",beat],["2 beats",beat*2],["1 bar",beat*sig],["2 bars",beat*sig*2],["4 bars",beat*sig*4],["8 bars",beat*sig*8],["16 bars",beat*sig*16],["32 bars",beat*sig*32]];
+  for(const[n,s]of items){
+    tb.insertAdjacentHTML("beforeend",`<tr><td>${n}</td><td class="v">${s.toFixed(4)}</td><td class="v">${(s*1000).toFixed(2)}</td><td class="v">${Math.round(s*sr).toLocaleString()}</td></tr>`);
+  }
+}
+for(const id of["bpm","sr","sig"])document.getElementById(id).addEventListener("input",calc);
+calc();
+</script>
+</body>
+</html>

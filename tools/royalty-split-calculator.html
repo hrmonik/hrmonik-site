@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Royalty Split Calculator — Song Splits Made Simple | Hrmonik</title>
+<meta name="description" content="Free music royalty split calculator. Add collaborators, set percentages, check they total 100%, and see exactly what each writer or producer earns from any payout amount.">
+<link rel="canonical" href="https://www.hrmonik.com/tools/royalty-split-calculator.html">
+<meta property="og:title" content="Royalty Split Calculator | Hrmonik">
+<meta property="og:description" content="Add collaborators, set percentages, and see exactly what each writer or producer earns from any payout.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Royalty Split Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Hrmonik","url":"https://www.hrmonik.com"}}
+</script>
+<style>
+:root{--bg:#000;--bg2:#0a0a0a;--line:#1c1c1c;--line2:#2a2a2a;--text:#fff;--muted:#9a9a9a;--dim:#5e5e5e;--accent:#e7b24c;--accent-bright:#f3c869;--maxw:880px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+.ls{text-transform:uppercase;letter-spacing:3px;font-weight:300}
+header{border-bottom:1px solid var(--line);padding:22px 0}
+header .wrap{display:flex;justify-content:space-between;align-items:center}
+header a.logo{font-size:15px;letter-spacing:5px;text-transform:uppercase}
+header a.back{font-size:11px;color:var(--muted)}
+header a.back:hover{color:var(--accent)}
+h1{font-size:26px;font-weight:200;letter-spacing:2px;margin:54px 0 10px}
+.sub{color:var(--muted);font-size:14px;margin-bottom:40px;max-width:620px}
+.tool{background:var(--bg2);border:1px solid var(--line);padding:34px;margin-bottom:50px}
+label{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+input{background:#000;border:1px solid var(--line2);color:var(--text);font-family:inherit;font-weight:300;padding:10px 12px;outline:none}
+input:focus{border-color:var(--accent)}
+.row{display:grid;grid-template-columns:1fr 110px 130px 34px;gap:10px;margin-bottom:10px;align-items:center}
+.row input[type=text]{font-size:14px}
+.row input[type=number]{font-size:14px}
+.row .earn{color:var(--accent);font-size:14px;text-align:right}
+.row button{background:none;border:1px solid var(--line2);color:var(--dim);cursor:pointer;height:34px;font-size:14px}
+.row button:hover{color:#fff;border-color:var(--accent)}
+.amountbox{margin:6px 0 26px}
+.amountbox input{font-size:24px;font-weight:200;width:220px}
+.add{background:none;border:1px solid var(--accent);color:var(--accent);font-family:inherit;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:10px 22px;cursor:pointer;margin-top:8px}
+.add:hover{background:var(--accent);color:#000}
+.total{margin-top:22px;padding-top:18px;border-top:1px solid var(--line2);display:flex;justify-content:space-between;font-size:14px}
+.total .pct.ok{color:#7fcf7f}.total .pct.bad{color:#e76a6a}
+.headrow{display:grid;grid-template-columns:1fr 110px 130px 34px;gap:10px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
+section.txt{margin-bottom:46px}
+section.txt h2{font-size:15px;letter-spacing:3px;text-transform:uppercase;font-weight:300;color:var(--accent);margin-bottom:14px}
+section.txt p,section.txt li{color:var(--muted);font-size:14px}
+section.txt ul{padding-left:20px}
+footer{border-top:1px solid var(--line);padding:30px 0;margin-top:70px}
+footer .wrap{display:flex;justify-content:space-between;font-size:11px;color:var(--dim)}
+footer a:hover{color:var(--accent)}
+@media(max-width:600px){.tool{padding:18px}.row,.headrow{grid-template-columns:1fr 70px 80px 30px}h1{font-size:21px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="https://www.hrmonik.com/">Hrmonik</a>
+<a class="back ls" href="/tools/">← All Tools</a>
+</div></header>
+<main class="wrap">
+<h1>Royalty Split Calculator</h1>
+<p class="sub">Add everyone on the record, set their percentages, and see instantly whether the splits total 100% — and what each person actually earns from any payout.</p>
+
+<div class="tool">
+<div class="amountbox">
+<label for="amount">Payout amount ($)</label>
+<input type="number" id="amount" value="1000" min="0" step="0.01" inputmode="decimal">
+</div>
+<div class="headrow"><span>Collaborator</span><span>Share %</span><span style="text-align:right">Earns</span><span></span></div>
+<div id="rows"></div>
+<button class="add" id="add">+ Add collaborator</button>
+<div class="total"><span class="ls" style="font-size:11px;color:var(--muted)">Total</span><span class="pct" id="totalPct">100%</span></div>
+</div>
+
+<section class="txt">
+<h2>How splits actually work</h2>
+<p>Every song has two copyrights: the <strong style="color:#fff;font-weight:400">composition</strong> (the writing — melody, lyrics, chords) and the <strong style="color:#fff;font-weight:400">master</strong> (the recording itself). Writers split the composition; artists, producers and whoever funded the recording split the master. Run this calculator once for each side — the percentages are usually different.</p>
+</section>
+<section class="txt">
+<h2>Ground rules that save friendships</h2>
+<ul>
+<li>Agree on splits <em>in the session, the day the song is made</em> — before anyone knows if it's a hit.</li>
+<li>Put it in writing (even a group text counts as evidence; a split sheet is better).</li>
+<li>Producer points on the master typically run 2–5% of the artist's share, or a flat fee plus points.</li>
+<li>If everyone contributed and nobody can agree, equal splits are the industry-standard default.</li>
+</ul>
+</section>
+<section class="txt">
+<h2>FAQ</h2>
+<p><strong style="color:#fff;font-weight:400">Do splits have to be equal?</strong><br>No — they're whatever the collaborators agree to. Equal splits are just the default when nothing is negotiated.</p>
+<p style="margin-top:12px"><strong style="color:#fff;font-weight:400">Is this calculator legal advice?</strong><br>No. It does the arithmetic; the agreement between collaborators is the legal part. For serious money, get a split sheet signed and talk to a music attorney.</p>
+</section>
+</main>
+<footer><div class="wrap">
+<span>© Hrmonik — www.hrmonik.com</span>
+<a href="/tools/">More free music tools →</a>
+</div></footer>
+<script>
+const rowsEl=document.getElementById("rows");
+let people=[["Writer 1",50],["Writer 2",50]];
+function render(){
+  rowsEl.innerHTML="";
+  people.forEach((p,i)=>{
+    const d=document.createElement("div");d.className="row";
+    d.innerHTML=`<input type="text" value="${p[0].replace(/"/g,'&quot;')}" data-i="${i}" data-k="0">
+<input type="number" value="${p[1]}" min="0" max="100" step="0.01" data-i="${i}" data-k="1" inputmode="decimal">
+<span class="earn" id="e${i}">—</span>
+<button data-del="${i}" title="remove">×</button>`;
+    rowsEl.appendChild(d);
+  });
+  calc();
+}
+function calc(){
+  const amt=parseFloat(document.getElementById("amount").value)||0;
+  let tot=0;
+  people.forEach((p,i)=>{
+    tot+=p[1]||0;
+    const e=document.getElementById("e"+i);
+    if(e)e.textContent="$"+((amt*(p[1]||0))/100).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
+  });
+  const t=document.getElementById("totalPct");
+  t.textContent=(+tot.toFixed(2))+"%";
+  t.className="pct "+(Math.abs(tot-100)<0.01?"ok":"bad");
+}
+rowsEl.addEventListener("input",e=>{
+  const i=+e.target.dataset.i,k=+e.target.dataset.k;
+  if(Number.isNaN(i))return;
+  people[i][k]=k===1?parseFloat(e.target.value)||0:e.target.value;
+  calc();
+});
+rowsEl.addEventListener("click",e=>{
+  if(e.target.dataset.del!==undefined){people.splice(+e.target.dataset.del,1);render();}
+});
+document.getElementById("add").addEventListener("click",()=>{people.push(["Collaborator "+(people.length+1),0]);render();});
+document.getElementById("amount").addEventListener("input",calc);
+render();
+</script>
+</body>
+</html>
