@@ -144,6 +144,61 @@
   .retainer{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;font-weight:300;margin-bottom:20px}
   .svc a.svc-cta{font-size:11px;text-transform:uppercase;letter-spacing:3px;font-weight:400;color:var(--accent);opacity:.85;border-bottom:1px solid var(--accent);padding-bottom:3px;transition:opacity .25s,border-color .25s,letter-spacing .3s}
   .svc a.svc-cta:hover{opacity:1;border-color:var(--accent-bright);letter-spacing:4px}
+  .svc.featured{
+    box-shadow:inset 0 0 0 1px rgba(255,196,0,.28);
+    background:linear-gradient(165deg,rgba(255,196,0,.04),transparent 55%),var(--bg);
+  }
+  .svc.featured .top h3{color:var(--cream)}
+  .start-here{
+    max-width:920px;margin:0 auto 48px;padding:28px 28px 26px;
+    border:1px solid var(--line2);background:rgba(0,0,0,.28);
+    display:grid;gap:18px;
+  }
+  @media(min-width:760px){
+    .start-here{grid-template-columns:1.15fr .85fr;align-items:center;gap:28px;padding:32px 36px}
+  }
+  .start-here .sh-kicker{
+    font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--tech);font-weight:300;margin-bottom:10px
+  }
+  .start-here h3{
+    font-size:clamp(18px,2.4vw,24px);font-weight:200;letter-spacing:1px;line-height:1.3;margin-bottom:12px
+  }
+  .start-here p{color:var(--muted);font-size:14px;font-weight:300;line-height:1.8;margin:0}
+  .start-here .sh-price{color:#fff;font-weight:400}
+  .start-here .sh-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+  .start-here .sh-side{
+    border-left:none;border-top:1px solid var(--line);padding-top:16px;
+    font-size:12.5px;color:var(--muted);font-weight:300;line-height:1.75
+  }
+  @media(min-width:760px){
+    .start-here .sh-side{border-top:none;border-left:1px solid var(--line);padding:0 0 0 28px}
+  }
+  .start-here .sh-side a{color:var(--accent);border-bottom:1px solid transparent}
+  .start-here .sh-side a:hover{border-bottom-color:var(--accent)}
+  .start-here .sh-side strong{display:block;color:var(--cream);font-weight:400;letter-spacing:1px;
+    text-transform:uppercase;font-size:10px;margin-bottom:8px}
+  .path-pills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:0 auto 40px;max-width:820px}
+  .path-pills a{
+    font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:300;
+    color:var(--cream);border:1px solid var(--line2);padding:10px 14px;opacity:.85;transition:opacity .25s,border-color .25s,color .25s
+  }
+  .path-pills a:hover{opacity:1;border-color:var(--gold-btn);color:#fff}
+  .path-pills a.primary{border-color:var(--gold-btn);color:var(--gold-btn)}
+  .after-send{
+    display:none;margin-top:14px;padding:16px 18px;border:1px solid var(--line2);
+    background:rgba(52,224,170,.06);color:var(--muted);font-size:13px;line-height:1.7;font-weight:300
+  }
+  .after-send.show{display:block}
+  .after-send b{color:#fff;font-weight:400}
+  .after-send ol{margin:10px 0 0 1.1rem;padding:0}
+  .after-send li{margin:6px 0}
+  .embed.wide{grid-column:1/-1}
+  .embed iframe{width:100%;border:0;display:block;min-height:140px;background:#000}
+  .embed.yt iframe{min-height:220px;aspect-ratio:16/9;height:auto}
+  @media(max-width:820px){
+    .embeds{grid-template-columns:1fr}
+    .embed.wide{grid-column:auto}
+  }
 
   /* ---------- WORK ---------- */
   .credits{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line)}
@@ -354,6 +409,7 @@
       <div class="navlinks">
         <a href="#services">Services</a>
         <a href="#work">Work</a>
+        <a href="tools/">Tools</a>
         <a href="#about">About</a>
         <a href="#testimonials">Credits</a>
         <a href="#book" class="nav-cta">Book / Get a Quote</a>
@@ -384,14 +440,14 @@
       </svg>
       <span class="hero-logo-tag">Hrmonik · sound, alive</span>
     </div>
-    <span class="eyebrow">Remote audio post-production &amp; mixing/mastering · DJ for events, available to travel · Pro Tools HD certified</span>
+    <span class="eyebrow">Pro Tools HD certified · remote post &amp; mix/master · DJ available to travel</span>
     <h1>Brand-grade sound<span class="em">engineered end to end.</span></h1>
-    <p class="sub">Mix engineer, sound designer, and producer. Post-production, mixing &amp; mastering, recording and sound design — delivered remotely, for clients anywhere — plus event DJ work, available to travel. Most recently provided Audio Engineering III services for Meta (through Rose International), building on seven years of immersive audio at Salesforce — the Metallica keynote, Dreamforce, brand films, podcasts.</p>
+    <p class="sub">Broadcast-clean post-production, release-ready mix &amp; master, and event DJ work — for creators, brands, and rooms that need it right. Credits include Meta (via Rose International), Salesforce, Dreamforce, and the Metallica World Tour keynote sound.</p>
     <div class="hero-ctas">
-      <a href="#book" class="btn">Get a Quote</a>
+      <a href="#book" class="btn" onclick="var s=document.getElementById('f_service');if(s)s.value='Post-Production'">Start with post — $150/hr</a>
       <a href="#work" class="btn ghost">Hear the work ↓</a>
     </div>
-    <p class="trust"><b>Pro Tools HD</b> certified · <b>Meta</b> via Rose International · <b>Salesforce</b> · <b>Dolby</b> · Mix → Master → Dancefloor</p>
+    <p class="trust"><b>Most requested:</b> post-production · also mix/master · DJ $250–$350/hr</p>
   </div>
   <div class="scroll-cue" aria-hidden="true">Scroll</div>
 </section>
@@ -402,57 +458,89 @@
     <div class="sec-head reveal">
       <svg class="accent-line" viewBox="0 0 440 22" preserveAspectRatio="none" aria-hidden="true"><path class="a2" d="M0 11 L440 11"/><path class="a1" d="M0 11 L440 11"/><path class="a0" d="M0 11 L440 11"/></svg>
       <span class="eyebrow">Services &amp; Rates</span>
-      <h2>Five services, one set of ears.</h2>
-      <p>Whether you need a record finished, a podcast that sounds broadcast-clean, original sound for a project, or the right energy on the floor — it's handled start to finish.</p>
+      <h2>Start here — then pick the path that fits.</h2>
+      <p>Five services, one set of ears. Most clients begin with post-production or mix/master. DJ is a separate booking path with a deposit.</p>
     </div>
+
+    <div class="start-here reveal">
+      <div>
+        <div class="sh-kicker">Primary path · most requested</div>
+        <h3>Post-production — broadcast-clean audio, remote</h3>
+        <p>
+          Episodes, video, and brand content finished on time.
+          <span class="sh-price">$150/hr</span> · longer retainers from <span class="sh-price">$125/hr</span>.
+          Scoped after a short brief — no mystery packages.
+        </p>
+        <div class="sh-actions">
+          <a href="#book" class="btn" onclick="var s=document.getElementById('f_service');if(s)s.value='Post-Production'">Get a post quote</a>
+          <a href="#work" class="btn ghost">Hear related work</a>
+        </div>
+      </div>
+      <div class="sh-side">
+        <strong>Other clear paths</strong>
+        <a href="#svc-mix">Mix &amp; master</a> — per song, scoped after a listen<br />
+        <a href="#svc-dj">DJ</a> — $250–$350/hr · calendar deposit<br />
+        <a href="#svc-record">Recording</a> · <a href="#svc-sound">Sound design</a> — scoped after a brief
+      </div>
+    </div>
+
+    <div class="path-pills reveal">
+      <a class="primary" href="#svc-post">Post $150/hr</a>
+      <a href="#svc-mix">Mix / master</a>
+      <a href="#svc-dj">DJ $250–$350/hr</a>
+      <a href="#svc-record">Recording</a>
+      <a href="#svc-sound">Sound design</a>
+      <a href="tools/">Free music tools</a>
+    </div>
+
     <div class="grid">
 
-      <div class="svc reveal" style="order:4">
-        <div class="top"><h3>Recording</h3><span class="price quote">Quote on request</span></div>
-        <p class="blurb">A professionally tracked, edit-ready session. For artists, podcasters, and voice talent.</p>
+      <div class="svc reveal" id="svc-record" style="order:4">
+        <div class="top"><h3>Recording</h3><span class="price quote">Scoped after brief</span></div>
+        <p class="blurb">A professionally tracked, edit-ready session. For artists, podcasters, and voice talent. <em>Quote after we confirm session length, location/remote workflow, and deliverables — so the number matches the day.</em></p>
         <ul class="tiers">
           <li>Starter — single song / short session, tracked + comped</li>
           <li><b>Standard</b> <span class="pill">most pick</span> — full session + edit/tuning, stems delivered</li>
           <li>Premium — multi-song / full day, edit + rough mix</li>
         </ul>
-        <a href="#book" class="svc-cta">Book a session →</a>
+        <a href="#book" class="svc-cta" onclick="var s=document.getElementById('f_service');if(s)s.value='Recording'">Book a session →</a>
       </div>
 
-      <div class="svc reveal d1" style="order:5">
-        <div class="top"><h3>Sound Design</h3><span class="price quote">Quote on request</span></div>
-        <p class="blurb">Original, ready-to-drop sound for your project. For game/app studios, video &amp; ad producers, filmmakers.</p>
+      <div class="svc reveal d1" id="svc-sound" style="order:5">
+        <div class="top"><h3>Sound Design</h3><span class="price quote">Scoped after brief</span></div>
+        <p class="blurb">Original, ready-to-drop sound for your project. For game/app studios, video &amp; ad producers, filmmakers. <em>Quote after scope (cues, length, revision rounds) — fixed or hourly depending on the job.</em></p>
         <ul class="tiers">
           <li>Starter — small SFX pack / a few cues</li>
           <li><b>Standard</b> <span class="pill">most pick</span> — scene/level set, delivered to spec</li>
           <li>Premium — full-project sound design + revisions</li>
         </ul>
-        <a href="#book" class="svc-cta">Start a project →</a>
+        <a href="#book" class="svc-cta" onclick="var s=document.getElementById('f_service');if(s)s.value='Sound Design'">Start a project →</a>
       </div>
 
-      <div class="svc reveal" style="order:1">
-        <div class="top"><h3>Post-Production</h3><span class="pill">most requested</span><span class="price">$150 / hr</span></div>
-        <p class="blurb">Broadcast-clean audio, on time, every episode. For podcasters, video creators, and agencies. <em>From $125/hr on longer engagements.</em></p>
+      <div class="svc featured reveal" id="svc-post" style="order:1">
+        <div class="top"><h3>Post-Production</h3><span class="pill">start here</span><span class="price">$150 / hr</span></div>
+        <p class="blurb">Broadcast-clean audio, on time, every episode. For podcasters, video creators, and agencies. <em>From $125/hr on longer engagements and monthly retainers.</em></p>
         <ul class="tiers">
           <li>Starter — one episode: clean-up, level, edit</li>
           <li><b>Standard</b> <span class="pill">most pick</span> — episode + music/SFX + mastered to spec</li>
           <li>Premium — full multitrack + show-ready deliverables</li>
         </ul>
         <p class="retainer">Monthly retainer available (set episodes/mo) — from $125/hr</p>
-        <a href="#book" class="svc-cta">Get a post-production quote →</a>
+        <a href="#book" class="svc-cta" onclick="var s=document.getElementById('f_service');if(s)s.value='Post-Production'">Get a post-production quote →</a>
       </div>
 
-      <div class="svc reveal d1" style="order:2">
-        <div class="top"><h3>Mixing &amp; Mastering</h3><span class="price quote">Quote on request</span></div>
-        <p class="blurb">A release-ready <b>master</b> that holds up next to anything in the playlist. For independent artists and labels. <em>Mastering is a premium specialty — through Rose International, JP provided Audio Engineering III services for Meta, mixing &amp; mastering for game projects and a music initiative. Recent release: co-produced, mixed &amp; mastered MATELLUS — &ldquo;Playing with Fire&rdquo; (2026).</em></p>
+      <div class="svc reveal d1" id="svc-mix" style="order:2">
+        <div class="top"><h3>Mixing &amp; Mastering</h3><span class="price quote">Per song · after listen</span></div>
+        <p class="blurb">A release-ready <b>master</b> that holds up next to anything in the playlist. For independent artists and labels. <em>Per-song price after a short listen of your rough — mix only, master only, or mix+master. Recent release: MATELLUS — &ldquo;Playing with Fire&rdquo; (2026).</em></p>
         <ul class="tiers">
           <li>Starter — mix <i>or</i> master, one song</li>
           <li><b>Standard</b> <span class="pill">most pick</span> — <b>mix + master</b>, one song, set revisions</li>
           <li>Premium — full production: beat → mix → <b>master</b></li>
         </ul>
-        <a href="#book" class="svc-cta">Send me your track →</a>
+        <a href="#book" class="svc-cta" onclick="var s=document.getElementById('f_service');if(s)s.value='Mixing / Mastering'">Send me your track →</a>
       </div>
 
-      <div class="svc reveal" style="grid-column:1/-1;order:3">
+      <div class="svc reveal" id="svc-dj" style="grid-column:1/-1;order:3">
         <div class="top"><h3>DJ Services</h3><span class="price">$250–$350 / hr</span></div>
         <p class="blurb">The right energy for the room, handled end to end. Weddings, clubs, private &amp; corporate events — available to travel; for events outside the local area, travel and lodging are billed separately, on top of the rate.</p>
         <ul class="tiers">
@@ -460,8 +548,8 @@
           <li><b>Full production</b> <span class="pill">most pick</span> — I bring speakers + lights — <b>$350/hr</b></li>
           <li>Premium — extended set, full gear + lights, MC/coordination — <b>$350/hr</b> + add-ons</li>
         </ul>
-        <p class="retainer">Venue residency / repeat monthly event — let's talk</p>
-        <a href="https://calendar.app.google/veyLR322TJjoiJ88A" class="svc-cta" target="_blank" rel="noopener">Check my date →</a>
+        <p class="retainer">Venue residency / repeat monthly event — let's talk · deposit required to hold the date</p>
+        <a href="https://calendar.app.google/veyLR322TJjoiJ88A" class="svc-cta" target="_blank" rel="noopener">Check my date — $250 deposit →</a>
       </div>
 
     </div>
@@ -537,45 +625,51 @@
     <div class="sec-head reveal" style="margin-top:84px;margin-bottom:40px">
       <span class="eyebrow">Music — production · mix &amp; master</span>
       <h2 style="font-size:clamp(20px,2.6vw,26px)">Current releases</h2>
-      <p>The mixing &amp; mastering spotlight in the wild — a live 2026 release. More tracks added here over time.</p>
+      <p>Listen on-page — a 2026 mix/master credit in the wild.</p>
     </div>
-    <div class="credits">
-      <a class="credit reveal" href="https://music.youtube.com/watch?v=h-6trLobrYo" target="_blank" rel="noopener" style="grid-column:1/-1">
-        <span class="ctag">Co-Produced · Mixed · Mastered · 2026</span>
-        <span class="cname"><b>MATELLUS</b> — &ldquo;Playing with Fire&rdquo;</span>
-        <span class="clink">Listen on YouTube Music →</span>
-      </a>
+    <div class="embeds" style="margin-bottom:28px">
+      <div class="embed yt wide reveal">
+        <div class="plat">MATELLUS — Playing with Fire · 2026</div>
+        <iframe title="MATELLUS — Playing with Fire" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen
+          src="https://www.youtube.com/embed/h-6trLobrYo"></iframe>
+        <a href="https://music.youtube.com/watch?v=h-6trLobrYo" target="_blank" rel="noopener">Open on YouTube Music →</a>
+      </div>
     </div>
 
-    <div class="sec-head reveal" style="margin-top:88px;margin-bottom:40px">
+    <div class="sec-head reveal" style="margin-top:56px;margin-bottom:40px">
       <span class="eyebrow">Listen / Follow</span>
       <h2 style="font-size:clamp(20px,2.6vw,26px)">Mixes, sets &amp; productions</h2>
+      <p>Players below are live — not empty placeholders.</p>
     </div>
     <div class="embeds">
+      <div class="embed yt wide reveal">
+        <div class="plat">Featured credit · Salesforce World Tour keynote (Metallica)</div>
+        <iframe title="Salesforce World Tour keynote featuring Metallica — sound design &amp; mix" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen
+          src="https://www.youtube.com/embed/i3qQZpWI_aA"></iframe>
+        <a href="https://www.youtube.com/watch?v=i3qQZpWI_aA" target="_blank" rel="noopener">Watch on YouTube →</a>
+      </div>
       <div class="embed reveal">
         <div class="plat">Mixcloud</div>
-        <iframe title="Hrmonik on Mixcloud" width="100%" height="140" loading="lazy" frameborder="0" style="border:0;display:block" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fhrmonik%2F"></iframe>
+        <iframe title="Hrmonik on Mixcloud" width="100%" height="140" loading="lazy" frameborder="0" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fhrmonik%2F"></iframe>
         <a href="https://www.mixcloud.com/hrmonik/" target="_blank" rel="noopener">mixcloud.com/hrmonik</a>
       </div>
       <div class="embed reveal d1">
         <div class="plat">SoundCloud</div>
-        <iframe title="Hrmonik on SoundCloud" width="100%" height="150" scrolling="no" frameborder="no" loading="lazy" style="border:0;display:block" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fhrmonik&color=%23e7b24c&inverse=true&show_user=true"></iframe>
+        <iframe title="Hrmonik on SoundCloud" width="100%" height="150" scrolling="no" frameborder="no" loading="lazy" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fhrmonik&color=%23e7b24c&inverse=true&show_user=true"></iframe>
         <a href="https://soundcloud.com/hrmonik" target="_blank" rel="noopener">soundcloud.com/hrmonik</a>
       </div>
       <div class="embed reveal d2">
         <div class="plat">Spotify</div>
-        <div class="ph">Released work embeds here</div>
-        <a href="https://open.spotify.com/user/1225329394" target="_blank" rel="noopener">open.spotify.com/user/1225329394</a>
+        <p class="ph" style="text-transform:none;letter-spacing:.3px;line-height:1.6;font-size:12.5px;color:var(--muted)">Profile + releases — open in Spotify (no public playlist embed ID on this page yet).</p>
+        <a href="https://open.spotify.com/user/1225329394" target="_blank" rel="noopener">open.spotify.com/user/1225329394 →</a>
       </div>
       <div class="embed reveal">
-        <div class="plat">YouTube</div>
-        <div class="ph">Sets &amp; video embeds here</div>
-        <a href="https://www.youtube.com/channel/UC9eyKrUYS9GDKyv9mnXYZxQ" target="_blank" rel="noopener">youtube.com/@hrmonik</a>
+        <div class="plat">YouTube channel</div>
+        <a href="https://www.youtube.com/channel/UC9eyKrUYS9GDKyv9mnXYZxQ" target="_blank" rel="noopener">youtube.com/@hrmonik →</a>
       </div>
       <div class="embed reveal d1">
         <div class="plat">Vimeo</div>
-        <div class="ph">Video / post work</div>
-        <a href="https://vimeo.com/user33064217" target="_blank" rel="noopener">vimeo.com/user33064217</a>
+        <a href="https://vimeo.com/user33064217" target="_blank" rel="noopener">vimeo.com/user33064217 →</a>
       </div>
     </div>
     <div style="text-align:center;margin-top:48px" class="reveal"><a href="#book" class="btn">Like what you hear? Get a quote</a></div>
@@ -615,9 +709,15 @@
       <p>No invented quotes — just real, publicly linked work (see Selected Work above).</p>
     </div>
     <div class="truststrip reveal">
-      <span>Meta <i>via Rose International</i></span><span>Salesforce</span><span>Dreamforce</span><span>Sonos</span><span>Mastercard</span><span>Metallica <i>World Tour keynote</i></span><span>Dolby <i>new-tech consulting</i></span>
+      <span>Meta <i>via Rose International</i></span>
+      <a href="https://www.salesforce.com/plus/series/Think_Outside_the_Quota" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><span>Salesforce</span></a>
+      <span>Dreamforce</span>
+      <a href="https://www.youtube.com/watch?v=b8KWqYFbSSE" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><span>Sonos</span></a>
+      <a href="https://www.youtube.com/watch?v=TbNv-TAB-hE" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><span>Mastercard</span></a>
+      <a href="https://www.youtube.com/watch?v=i3qQZpWI_aA" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><span>Metallica <i>World Tour keynote</i></span></a>
+      <span>Dolby <i>new-tech consulting</i></span>
     </div>
-    <p class="todo-note reveal">Brand names reference specific productions JP engineered, each linked in Selected Work — not claims of endorsement.</p>
+    <p class="todo-note reveal">Brand names reference specific productions JP engineered, each linked in Selected Work — not claims of endorsement. Prefer the public links over the name strip alone.</p>
   </div>
 </section>
 
@@ -627,18 +727,24 @@
     <div class="reveal">
       <span class="eyebrow">Booking / Contact</span>
       <h2>Tell me about the project.</h2>
-      <p class="lead">Send your date and a couple of lines about what you need — I'll come back with the right package and a quote.</p>
+      <p class="lead">Default path is a quote for post-production or mix/master. DJ dates use the deposit calendar. Either way: short form → I reply with package + price.</p>
       <p class="contact-line">Prefer email? <b>music@hrmonik.com</b></p>
-      <p class="contact-line">DJ booking, available to travel · post &amp; mix/master remote, clients anywhere</p>
-      <p class="contact-line">A deposit is required to hold DJ dates.</p>
-      <p style="margin-top:18px"><a href="https://calendar.app.google/veyLR322TJjoiJ88A" class="btn" target="_blank" rel="noopener">Book your date — pay $250 deposit →</a></p>
-      <p style="margin-top:24px"><a href="#book" class="btn">Book a call →</a></p>
+      <p class="contact-line">What happens next</p>
+      <p class="contact-line" style="text-transform:none;letter-spacing:.4px;font-size:13.5px;line-height:1.85;color:var(--muted)">
+        1) You send name, email, service, and a couple of lines<br />
+        2) I reply within 1–2 business days with scope + quote<br />
+        3) DJ only: hold the date with the $250 deposit on the calendar
+      </p>
+      <p class="contact-line">Post &amp; mix/master — remote, clients anywhere · DJ — available to travel</p>
+      <p style="margin-top:18px"><a href="https://calendar.app.google/veyLR322TJjoiJ88A" class="btn" target="_blank" rel="noopener">DJ date — pay $250 deposit →</a></p>
+      <p style="margin-top:16px"><a href="mailto:music@hrmonik.com?subject=Hrmonik%20%E2%80%94%20project%20chat" class="btn ghost">Email music@hrmonik.com →</a></p>
+      <p class="contact-line" style="margin-top:22px;text-transform:none;letter-spacing:.3px">While you wait: free <a href="tools/" style="color:var(--accent)">musician tools</a> (BPM, key, delay, royalty split).</p>
     </div>
     <form class="reveal d1" id="quoteForm" onsubmit="return sendQuote(event)">
       <label>Name</label>
-      <input id="f_name" type="text" placeholder="Your name" required />
+      <input id="f_name" type="text" placeholder="Your name" required autocomplete="name" />
       <label>Email</label>
-      <input id="f_email" type="email" placeholder="you@email.com" required />
+      <input id="f_email" type="email" placeholder="you@email.com" required autocomplete="email" />
       <label>Service</label>
       <select id="f_service">
         <option>Recording</option>
@@ -651,9 +757,18 @@
       <label>Date needed / event date</label>
       <input id="f_date" type="date" />
       <label>Project details</label>
-      <textarea id="f_details" placeholder="A couple of lines about what you need..."></textarea>
+      <textarea id="f_details" placeholder="Platform (podcast/YouTube/release), length, deadline, links to roughs if any…"></textarea>
       <button type="submit" class="btn">Send &amp; get my quote</button>
-      <div class="formnote">Short by design — name, email, service &amp; date is enough to start.</div>
+      <div class="formnote">Opens your email app with a filled draft to music@hrmonik.com — hit send.</div>
+      <div class="after-send" id="afterSend" aria-live="polite">
+        <b>Draft ready.</b>
+        <ol>
+          <li>Your mail app should open with the quote request filled in — send it.</li>
+          <li>If nothing opened, email <b>music@hrmonik.com</b> directly with the same details.</li>
+          <li>Expect a reply within <b>1–2 business days</b> with scope + quote.</li>
+          <li>DJ dates: hold the calendar with the <a href="https://calendar.app.google/veyLR322TJjoiJ88A" target="_blank" rel="noopener">$250 deposit</a>.</li>
+        </ol>
+      </div>
     </form>
     <script>
       function sendQuote(e){
@@ -661,9 +776,11 @@
         var g=function(id){var el=document.getElementById(id);return el?el.value.trim():'';};
         var name=g('f_name'), email=g('f_email'), service=g('f_service'), date=g('f_date'), details=g('f_details');
         var subject='Quote request — '+service+(name?(' — '+name):'');
-        var body='Name: '+name+'\nEmail: '+email+'\nService: '+service+'\nDate: '+(date||'(not specified)')+'\n\nProject details:\n'+(details||'(none)');
+        var body='Name: '+name+'\nEmail: '+email+'\nService: '+service+'\nDate: '+(date||'(not specified)')+'\n\nProject details:\n'+(details||'(none)')+'\n\n— sent from hrmonik.com quote form';
         var note=document.querySelector('#quoteForm .formnote');
-        if(note) note.textContent='✓ Opening your email — just hit send. (Or email music@hrmonik.com directly.)';
+        if(note) note.textContent='Opening your email app — hit send on the draft.';
+        var after=document.getElementById('afterSend');
+        if(after) after.classList.add('show');
         window.location.href='mailto:music@hrmonik.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
         return false;
       }
